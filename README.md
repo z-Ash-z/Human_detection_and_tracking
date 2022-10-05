@@ -3,7 +3,7 @@ A C++ project that detects and tracks humans and returns their position in the r
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ---
-###Authors:
+### Authors:
 - Aneesh Chodisetty
 - Bhargav Kumar Soothram
 - Joseph Katakam
