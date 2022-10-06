@@ -38,14 +38,14 @@ Agile software development model will be used for the development process.
 ### System architecture
 
 The flow of our system is as follows:
-![Activity Diagram]()  
+![Activity Diagram](/UML/HumanDetectionTracking_ActivityDiagram.png)  
 The class diagram for the same can be found [here]().
 
 ### Project proposal
 
 - The proposal document can be found [here]().  
 - The proposal video can be found [here]().  
-- The quadchart can be found [here]().  
+- The quadchart can be found [here](/docs/Quadchart.pdf).  
 
 ### Dependencies  
 
