@@ -49,7 +49,7 @@ The class diagram for the same can be found [here]().
 
 ### Dependencies  
 
-| Name | Version | license |
+| Name | Version | License |
 | :--- | :--- | :--- |
 | Ubuntu | 20.04(LTS) | FSF Licenses |
 | C++ | 14 | Creative Commons Attribution-ShareAlike 3.0 Unported License |
