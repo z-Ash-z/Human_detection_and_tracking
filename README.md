@@ -54,7 +54,8 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 ### System architecture
 - The class diagram can be found [here]().
 
-- The flow of our system is as follows:
+- The flow of our system is as follows:  
+
 ![Activity Diagram](/UML/proposal/HumanDetectionTracking_ActivityDiagram.png)  
 
 
