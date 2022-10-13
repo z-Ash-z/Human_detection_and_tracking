@@ -52,10 +52,10 @@ class Tracker {
   std::vector<std::vector<float>> world_coordinates);
 
  private:
-  std::vector<std::vector<float>> intrinsic_params_;
-  std::vector<std::vector<float>> extrinsic_params_;
-  std::vector<std::vector<float>> robot_to_cam_transform_;
-  std::vector<std::vector<float>> projection_matrix_;
+  std::vector<std::vector<float>> _intrinsic_params;
+  std::vector<std::vector<float>> _extrinsic_params;
+  std::vector<std::vector<float>> _robot_to_cam_transform;
+  std::vector<std::vector<float>> _projection_matrix;
 };
 
 #endif  // INCLUDE_TRACK_HPP_
