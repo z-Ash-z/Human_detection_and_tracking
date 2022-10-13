@@ -12,10 +12,5 @@
  */
 
 
-#include <iostream>
-#include <lib.hpp>
+#include <preprocess.hpp>
 
-int main() {
-  dummy();
-  return 0;
-}
