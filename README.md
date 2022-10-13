@@ -6,9 +6,9 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 ---
 
 ## Authors
- - [Aneesh Chodisetty](https://github.com/z-Ash-z)
- - [Bhargav Kumar Soothram](https://github.com/Bhargav-Soothram)
- - [Joseph Pranadeer Reddy Katakam](https://github.com/roboticistjoseph)
+ - [Aneesh Chodisetty](https://github.com/z-Ash-z) - 117359893
+ - [Bhargav Kumar Soothram](https://github.com/Bhargav-Soothram) - 117041088
+ - [Joseph Pranadeer Reddy Katakam](https://github.com/roboticistjoseph) - 117517958
 
 ## Table of Contents
 1. [Introduction](#introduction)
