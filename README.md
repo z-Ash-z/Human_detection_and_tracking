@@ -2,6 +2,8 @@
 
 A C++ Module for new robotics-based product of ACME Robotics using high-quality engineering practices to detect and track Humans and return their position in the robot's reference frame.
 
+[![Build Status](https://github.com/z-Ash-z/Human_detection_and_tracking/actions/workflows/build_and_coveralls.yml/badge.svg)](https://github.com/z-Ash-z/Human_detection_and_tracking/actions/workflows/build_and_coveralls.yml)
+[![Coverage Status](https://coveralls.io/repos/github/z-Ash-z/Human_detection_and_tracking/badge.svg?branch=master)](https://coveralls.io/github/z-Ash-z/Human_detection_and_tracking?branch=master
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ---
 
