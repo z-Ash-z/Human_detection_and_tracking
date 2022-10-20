@@ -27,14 +27,14 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 
   As per Acme Robotic's requirement, we will use the input from a monocular camera to detect and track an object. This object is then converted to the robot's frame of reference. This package is then used by Acme in their robotics-based product that will be lauched next year.  
 
-  Our system uses YOLOv5 model that is trained using [COCO dataset](https://cocodataset.org/#home) and is built using C++. COCO dataset is a large-scale object detection, segmentation, and captioning dataset. Our system takes an image from a monocular camera, pre-processes the image, passes this image to the trained model, filters out the human object with the highest confidence and then outputs the location of the object in the robot's frame of reference.
+  Our system uses YOLOv3 model that is trained using [COCO dataset](https://cocodataset.org/#home) and is built using C++. COCO dataset is a large-scale object detection, segmentation, and captioning dataset. Our system takes an image from a monocular camera, pre-processes the image, passes this image to the trained model, filters out the human object with the highest confidence and then outputs the location of the object in the robot's frame of reference.
   
 ## Deliverables
 
   1. Proposal Documentation
   2. UML Diagrams
   3. Project Package with demonstrated OOPs concepts
-  4. CI using Travis
+  4. CI using GitHub
   5. Code Coverage using Coveralls
   6. Unit Tests using Google Test Framework
   7. Developer Level Documentation
@@ -45,7 +45,7 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 
   - The project proposal document can be found [here](/docs/proposal/Human_Detection_and_Tracker_Proposal.pdf).  
   - The proposal video can be found [here](https://youtu.be/7sqIBtfbFjk).  
-  - The quadchart can be found [here](/docs/proposal/Quadchart.pdf).  
+  - The quadchart can be found [here](/docs/phase_1/Quadchart_phase_1.pdf).  
 
 ## System Design
 
@@ -58,7 +58,7 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 
 - The flow of our system is as follows:  
 
-![Activity Diagram](/UML/proposal/HumanDetectionTracking_ActivityDiagram.png)  
+![Activity Diagram](/UML/phase_1/HumanDetectionTracking_ActivityDiagram.png)  
 
 
 ### Dependencies  
@@ -75,6 +75,6 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 | Usage/Type | Tool name | License |
 | :--- | :--- | :--- |
 | IDE | Visual Studio Code | MIT License |
-| CI pipeline | Travis CI | enterprise.travis- ci.com |
+| CI pipeline | Github CI | Creative Commons Attribution 4.0 |
 | Code coverage | Coveralls | Coveralls, LLC |
 | Running tests | Gtests | BSD 3-Clause "New" or "Revised" License |
