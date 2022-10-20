@@ -14,13 +14,13 @@
 #ifndef INCLUDE_MODEL_HPP_
 #define INCLUDE_MODEL_HPP_
 
+#include <fstream>
 #include <string>
 #include <vector>
-#include <fstream>
-#include <opencv2/opencv.hpp>
 #include <opencv2/core/mat.hpp>
 #include <opencv2/dnn.hpp>
 #include <opencv2/dnn/all_layers.hpp>
+#include <opencv2/opencv.hpp>
 
 
 class Model {
@@ -39,8 +39,8 @@ class Model {
 
   /**
    * @brief Set all the labels
-   * 
-   * @param file_path 
+   *
+   * @param file_path
    */
   void setAllLabels(std::string file_path);
 
@@ -54,8 +54,9 @@ class Model {
 
   void setNet(std::string configuration, std::string model);
 
- private:
   std::vector<std::string> all_labels;
+
+ private:
   cv::dnn::Net net;
 };
 

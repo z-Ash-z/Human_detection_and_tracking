@@ -13,7 +13,6 @@
 
 #include <model.hpp>
 
-
 Model::Model() {}
 
 Model::~Model() {}
@@ -22,7 +21,7 @@ void Model::setAllLabels(std::string file_path) {
   std::ifstream input_stream(file_path.c_str());
   std::string line;
   while (getline(input_stream, line)) {
-    std::cout << line << std::endl;
+    // std::cout << line << std::endl;
     Model::all_labels.push_back(line);
   }
 }
@@ -34,10 +33,13 @@ void Model::setNet(std::string configuration, std::string model) {
 cv::Mat Model::predict(cv::Mat input_image) {
   int frame_height = input_image.cols;
   int frame_width = input_image.rows;
+  // std::cout << frame_width << ' ' << frame_height << '\n';
   cv::Mat blob;
-  cv::dnn::blobFromImage(input_image, blob, 1./255, cv::Size(frame_width, frame_height), \
-                            cv::Scalar(0, 0, 0), true, false);
+  cv::dnn::blobFromImage(input_image, blob, 1. / 255,
+                         cv::Size(frame_width, frame_height),
+                         cv::Scalar(0, 0, 0), true, false);
   net.setInput(blob);
-  cv::Mat output = net.forward();
-  return output;
+  // std::vector<cv::Mat> outs;
+  cv::Mat outs = net.forward();
+  return outs;
 }
