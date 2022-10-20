@@ -13,7 +13,12 @@
 
 
 #include <iostream>
+#include <model.hpp>
+#include <track.hpp>
+
 
 int main() {
+  Model model;
+  model.setAllLabels("dependencies/coco.names");
   return 0;
 }
