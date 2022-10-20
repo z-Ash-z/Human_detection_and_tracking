@@ -14,10 +14,13 @@
 #ifndef INCLUDE_MODEL_HPP_
 #define INCLUDE_MODEL_HPP_
 
+#include <fstream>
+#include <string>
 #include <vector>
-#include <opencv2/opencv.hpp>
 #include <opencv2/core/mat.hpp>
-
+#include <opencv2/dnn.hpp>
+#include <opencv2/dnn/all_layers.hpp>
+#include <opencv2/opencv.hpp>
 
 
 class Model {
@@ -35,23 +38,26 @@ class Model {
   ~Model();
 
   /**
+   * @brief Set all the labels
+   *
+   * @param file_path
+   */
+  void setAllLabels(std::string file_path);
+
+  /**
    * @brief Returns model-predicted results given an input image
    *
    * @param input_image
-   * @param centroids
-   * @return double
+   * @return cv::Mat
    */
-  double predict(cv::Mat input_image,
-                 std::vector<std::vector<double>> centroids);
+  cv::Mat predict(cv::Mat input_image);
 
-  /**
-   * @brief Method to train the network, if need be
-   *
-   */
-  void trainModel();
+  void setNet(std::string configuration, std::string model);
+
+  std::vector<std::string> all_labels;
 
  private:
-  double _pretrainedModel;
+  cv::dnn::Net net;
 };
 
 #endif  // INCLUDE_MODEL_HPP_

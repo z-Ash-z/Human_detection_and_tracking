@@ -3,13 +3,11 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/include
 )
 
-add_library(detect_and_track
-            preprocess.cpp
+add_library(human_detector_and_tracker_library
             model.cpp
-            detect.cpp
-            ${CMAKE_SOURCE_DIR}/include/preprocess.hpp
+            track.cpp
             ${CMAKE_SOURCE_DIR}/include/model.hpp
-            ${CMAKE_SOURCE_DIR}/include/detect.hpp
+            ${CMAKE_SOURCE_DIR}/include/track.hpp
             )
 
-target_include_directories(detect_and_track PUBLIC ../include)
+target_include_directories(human_detector_and_tracker_library PUBLIC ../include)

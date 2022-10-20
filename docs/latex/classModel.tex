@@ -1,0 +1,87 @@
+\hypertarget{classModel}{}\doxysection{Model Class Reference}
+\label{classModel}\index{Model@{Model}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classModel_ae3b375de5f6df4faf74a95d64748e048}{Model}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classModel}{Model}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classModel_ad6ebd2062a0b823db841a0b88baac4c0}{$\sim$\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classModel}{Model}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModel_a99a77daaaf9b8d8d1ab87bb717b956ac}{set\+All\+Labels}} (std\+::string file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Set all the labels. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classModel_a3030db3a77502ebd204596854f2db961}{predict}} (cv\+::\+Mat input\+\_\+image)
+\begin{DoxyCompactList}\small\item\em Returns model-\/predicted results given an input image. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classModel_a44f5a8e1bf02db043ec062d6f915c706}\label{classModel_a44f5a8e1bf02db043ec062d6f915c706}} 
+void {\bfseries set\+Net} (std\+::string configuration, std\+::string model)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classModel_a0bb87e9a938f94b58a86f99148078ae8}\label{classModel_a0bb87e9a938f94b58a86f99148078ae8}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries all\+\_\+labels}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classModel_ae3b375de5f6df4faf74a95d64748e048}\label{classModel_ae3b375de5f6df4faf74a95d64748e048}} 
+\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{Model()}{Model()}}
+{\footnotesize\ttfamily Model\+::\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classModel}{Model}} object. 
+
+\mbox{\Hypertarget{classModel_ad6ebd2062a0b823db841a0b88baac4c0}\label{classModel_ad6ebd2062a0b823db841a0b88baac4c0}} 
+\index{Model@{Model}!````~Model@{$\sim$Model}}
+\index{````~Model@{$\sim$Model}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{$\sim$Model()}{~Model()}}
+{\footnotesize\ttfamily Model\+::$\sim$\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classModel}{Model}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classModel_a3030db3a77502ebd204596854f2db961}\label{classModel_a3030db3a77502ebd204596854f2db961}} 
+\index{Model@{Model}!predict@{predict}}
+\index{predict@{predict}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily cv\+::\+Mat Model\+::predict (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{input\+\_\+image }\end{DoxyParamCaption})}
+
+
+
+Returns model-\/predicted results given an input image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+image} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classModel_a99a77daaaf9b8d8d1ab87bb717b956ac}\label{classModel_a99a77daaaf9b8d8d1ab87bb717b956ac}} 
+\index{Model@{Model}!setAllLabels@{setAllLabels}}
+\index{setAllLabels@{setAllLabels}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{setAllLabels()}{setAllLabels()}}
+{\footnotesize\ttfamily void Model\+::set\+All\+Labels (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Set all the labels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+path} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/model.\+hpp\item 
+src/model.\+cpp\end{DoxyCompactItemize}

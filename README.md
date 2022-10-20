@@ -27,14 +27,14 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 
   As per Acme Robotic's requirement, we will use the input from a monocular camera to detect and track an object. This object is then converted to the robot's frame of reference. This package is then used by Acme in their robotics-based product that will be lauched next year.  
 
-  Our system uses YOLOv5 model that is trained using [COCO dataset](https://cocodataset.org/#home) and is built using C++. COCO dataset is a large-scale object detection, segmentation, and captioning dataset. Our system takes an image from a monocular camera, pre-processes the image, passes this image to the trained model, filters out the human object with the highest confidence and then outputs the location of the object in the robot's frame of reference.
+  Our system uses YOLOv3 model that is trained using [COCO dataset](https://cocodataset.org/#home) and is built using C++. COCO dataset is a large-scale object detection, segmentation, and captioning dataset. Our system takes an image from a monocular camera, pre-processes the image, passes this image to the trained model, filters out the human object with the highest confidence and then outputs the location of the object in the robot's frame of reference.
   
 ## Deliverables
 
   1. Proposal Documentation
   2. UML Diagrams
   3. Project Package with demonstrated OOPs concepts
-  4. CI using Travis
+  4. CI using GitHub
   5. Code Coverage using Coveralls
   6. Unit Tests using Google Test Framework
   7. Developer Level Documentation
@@ -43,9 +43,9 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 
 ### Project proposal
 
-  - The project proposal document can be found [here](/docs/proposal/Human_Detection_and_Tracker_Proposal.pdf).  
+  - The project proposal document can be found [here](/assets/proposal/Human_Detection_and_Tracker_Proposal.pdf).  
   - The proposal video can be found [here](https://youtu.be/7sqIBtfbFjk).  
-  - The quadchart can be found [here](/docs/proposal/Quadchart.pdf).  
+  - The quadchart can be found [here](/assets/phase_1/Quadchart_phase_1.pdf).  
 
 ## System Design
 
@@ -54,11 +54,11 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
   Agile software development model will be used for the development process where tasks will be tracked using a backlog table. The software is designed in a Test-Driven Development fashion and implemented using Pair programming technique. The tasks will be outlined for every sprint and after each sprint, the roles of the pair-programming group will be interchanged.
 
 ### System architecture
-- The class diagram can be found [here](/UML/proposal/HumanDetectionTracking_ClassDiagram.pdf).
+- The class diagram can be found [here](/UML/phase_1/HumanDetectionTracking_ClassDiagram.png).
 
 - The flow of our system is as follows:  
 
-![Activity Diagram](/UML/proposal/HumanDetectionTracking_ActivityDiagram.png)  
+![Activity Diagram](/UML/phase_1/HumanDetectionTracking_ActivityDiagram.png)  
 
 
 ### Dependencies  
@@ -75,6 +75,78 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 | Usage/Type | Tool name | License |
 | :--- | :--- | :--- |
 | IDE | Visual Studio Code | MIT License |
-| CI pipeline | Travis CI | enterprise.travis- ci.com |
+| CI pipeline | Github CI | Creative Commons Attribution 4.0 |
 | Code coverage | Coveralls | Coveralls, LLC |
 | Running tests | Gtests | BSD 3-Clause "New" or "Revised" License |
+
+## Development process
+
+## [ProductBacklog](https://docs.google.com/spreadsheets/d/1Nfs6v8OHeC70GFt3viYTwkHFGsq4SffKc7hRbwgNCj4/edit?usp=sharing)
+
+## [Sprint Planning](https://docs.google.com/document/d/1kLpquLgrRSabeeuczr-q7XmcqhTKqQVrV_Vu5U8dKOY/edit?usp=sharing)
+
+## Installing Dependencies
+
+```
+# Install minimal prerequisites (Ubuntu 18.04 as reference)
+sudo apt update && sudo apt install -y cmake g++ wget unzip
+
+# Download and unpack sources
+wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
+unzip opencv.zip
+
+# Create build directory
+mkdir -p build && cd build
+
+# Configure
+cmake  ../opencv-4.x
+
+# Build
+cmake --build .
+
+# install
+sudo make install
+```
+
+## Running the project
+
+### Build the model
+
+```
+git clone https://github.com/z-Ash-z/Human_detection_and_tracking.git
+cd <repository path>
+mkdir build
+cd build
+cmake ..
+make
+```
+
+### Running the model
+
+```
+cd <repository path>/build
+./app/human_detect_and_track_app
+```
+
+### Running the tests
+```
+cd <repository path>/build
+./test/cpp-test
+```
+
+### Generating doxygen documentation
+
+To install doxygen run the following command:
+```
+sudo apt-get install doxygen
+```
+To generate the doxygen documents:
+```
+doxygen doxygen.config
+```
+The documents generated are store in `./docs/doxygen` folder.
+
+## Known issues/bugs
+1. Depends on lighting conditions
+2. Low fps
+3. Identified human is highly sensitive to threhold
