@@ -14,6 +14,7 @@
 #include <iostream>
 #include <model.hpp>
 #include <opencv2/highgui.hpp>
+#include <opencv2/imgcodecs.hpp>
 #include <track.hpp>
 
 float min_confidence_score = 0.5;
@@ -22,53 +23,59 @@ int main() {
   Model model;
   model.setAllLabels("dependencies/coco.names");
   model.setNet("dependencies/yolov3.cfg", "dependencies/yolov3.weights");
-  cv::VideoCapture cap(0);
-  int count = 0;
-  while (cap.isOpened()) {
-    cv::Mat frame;
-    bool isFrame = cap.read(frame);
-    if (!isFrame) {
-      break;
-    }
-    count++;
-    if (count == 1) {
-      break;
-    }
-    cv::Mat frame_outputs = model.predict(frame);
-    // std::cout << frame_outputs.size() << '\n';
 
-    // cv::Mat results(frame_outputs.size[0], frame_outputs.size[1], CV_32F,
-    // frame_outputs.ptr<float>()); std::cout << results.size[0] << ' ' <<
-    // results.size[1] << '\n';
-    // // Run through all the predictions
-    // for (int i = 0; i < results.rows; i++) {
-    //   int class_id = int(results.at<float>(i, 1));
-    //   float confidence = results.at<float>(i, 2);
-    //   std::cout << confidence << '\n';
-    //   // Check if the detection is over the min threshold and then draw bbox
-    //   if (confidence > min_confidence_score){
-    //       std::cout << "Yeayy!" << '\n';
-    //       int bboxX = int(results.at<float>(i, 3) * frame.cols);
-    //       int bboxY = int(results.at<float>(i, 4) * frame.rows);
-    //       int bboxWidth = int(results.at<float>(i, 5) * frame.cols - bboxX);
-    //       int bboxHeight = int(results.at<float>(i, 6) * frame.rows - bboxY);
-    //       cv::rectangle(frame, cv::Point(bboxX, bboxY),
-    //                     cv::Point(bboxX + bboxWidth, bboxY + bboxHeight),
-    //                     cv::Scalar(0,0,255), 2);
-    //       std::string class_name = model.all_labels[class_id-1];
-    //       cv::putText(frame, class_name + " " +
-    //       std::to_string(int(confidence*100)) +
-    //               "%", cv::Point(bboxX, bboxY - 10),
-    //               cv::FONT_HERSHEY_SIMPLEX, 1.5, cv::Scalar(0,255,0), 2);
-    //   }
-    // }
-    // cv::imshow("frame", frame);
-    // int k = cv::waitKey(10);
-    //   if (k == 113) {
-    //       break;
-    //   }
-  }
-  cap.release();
+  // cv::VideoCapture cap(0);
+  // int count = 0;
+  // while (cap.isOpened()) {
+  //   cv::Mat frame;
+  //   bool isFrame = cap.read(frame);
+  //   if (!isFrame) {
+  //     break;
+  //   }
+  //   count++;
+  //   if (count == 10) {
+  //     break;
+  //   }
+  // }
+  // cap.release();
+
+    cv::Mat frame(cv::imread("data/aneesh.jpeg"));
+    std::cout << frame.size() << std::endl;
+    std::vector<cv::Mat> frame_outputs = model.predict(frame);
+    // std::cout << frame_outputs[0].t().size() << std::endl;
+    std::vector<int> classIds;
+    std::vector<float> confidences;
+    std::vector<cv::Rect> boxes;
+    for (size_t i = 0; i < frame_outputs.size(); ++i) {
+      float* data = reinterpret_cast<float*>(frame_outputs[i].data);
+      for (int j = 0; j < frame_outputs[i].rows; ++j, data += frame_outputs[i].cols) {
+        // std::cout << j << "\n";
+        cv::Mat scores = frame_outputs[i].row(j).colRange(5, frame_outputs[i].cols);
+        cv::Point classIdPoint;
+        double confidence;
+        cv::minMaxLoc(scores, 0, &confidence, 0, &classIdPoint);
+        if ((confidence > min_confidence_score) && (classIdPoint.x == 0)) {
+          int centerX = static_cast<int>(data[0] * frame.cols);
+          int centerY = static_cast<int>(data[1] * frame.rows);
+          int width = static_cast<int>(data[2] * frame.cols);
+          int height = static_cast<int>(data[3] * frame.rows);
+          int left = centerX - width / 2;
+          int top = centerY - height / 2;
+          std::cout << "ID: " << classIdPoint.x << std::endl;
+          classIds.push_back(classIdPoint.x);
+          confidences.push_back(static_cast<float>(confidence));
+          boxes.push_back(cv::Rect(left, top, width, height));
+        }
+      }
+    }
+
+    for (auto box : boxes)
+    {
+      cv::rectangle(frame, cv::Point(box.x, box.y), cv::Point(box.x + box.width, box.y + box.height), cv::Scalar(255, 178, 50), 3);
+    }
+    cv::imshow("Boxes", frame);
+    cv::waitKey(0);
+
   cv::destroyAllWindows();
   return 0;
 }

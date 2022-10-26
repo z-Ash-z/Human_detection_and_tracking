@@ -50,7 +50,14 @@ class Model {
    * @param input_image
    * @return cv::Mat
    */
-  cv::Mat predict(cv::Mat input_image);
+  std::vector<cv::Mat> predict(cv::Mat input_image);
+
+  /**
+   * @brief Get the output names of the object
+   * 
+   * @return std::vector<std::string> 
+   */
+  std::vector<std::string> getOutputsNames();
 
   void setNet(std::string configuration, std::string model);
 
