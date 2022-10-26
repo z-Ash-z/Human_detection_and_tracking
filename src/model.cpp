@@ -33,12 +33,10 @@ void Model::setNet(std::string configuration, std::string model) {
 std::vector<cv::Mat> Model::predict(cv::Mat input_image) {
   int frame_height = input_image.cols;
   int frame_width = input_image.rows;
-  // std::cout << frame_width << ' ' << frame_height << '\n';
   cv::Mat blob;
   cv::dnn::blobFromImage(input_image, blob, 1. / 255,
                          cv::Size(416, 416),
                          cv::Scalar(0, 0, 0), true, false);
-  std::cout << blob.size << std::endl;
   net.setInput(blob);
   std::vector<cv::Mat> outs;
   net.forward(outs, getOutputsNames());
