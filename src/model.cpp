@@ -30,16 +30,33 @@ void Model::setNet(std::string configuration, std::string model) {
   net = cv::dnn::readNetFromDarknet(configuration, model);
 }
 
-cv::Mat Model::predict(cv::Mat input_image) {
+std::vector<cv::Mat> Model::predict(cv::Mat input_image) {
   int frame_height = input_image.cols;
   int frame_width = input_image.rows;
   // std::cout << frame_width << ' ' << frame_height << '\n';
   cv::Mat blob;
   cv::dnn::blobFromImage(input_image, blob, 1. / 255,
-                         cv::Size(frame_width, frame_height),
+                         cv::Size(416, 416),
                          cv::Scalar(0, 0, 0), true, false);
+  std::cout << blob.size << std::endl;
   net.setInput(blob);
-  // std::vector<cv::Mat> outs;
-  cv::Mat outs = net.forward();
+  std::vector<cv::Mat> outs;
+  net.forward(outs, getOutputsNames());
   return outs;
+}
+
+std::vector<std::string> Model::getOutputsNames() {
+    static std::vector<std::string> names;
+    if (names.empty()) {
+        // Get the indices of the output layers, i.e. the layers
+        // with unconnected outputs
+        std::vector<int> outLayers = net.getUnconnectedOutLayers();
+        // Get the names of all the layers in the network
+        std::vector<std::string> layersNames = net.getLayerNames();
+        // Get the names of the output layers in names
+        names.resize(outLayers.size());
+        for (size_t i = 0; i < outLayers.size(); ++i)
+        names[i] = layersNames[outLayers[i] - 1];
+    }
+    return names;
 }
