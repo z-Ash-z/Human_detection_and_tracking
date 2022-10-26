@@ -17,7 +17,7 @@
 #include <opencv2/imgcodecs.hpp>
 #include <track.hpp>
 
-float min_confidence_score = 0.1;
+float min_confidence_score = 0.5;
 
 int main() {
   Model model;
