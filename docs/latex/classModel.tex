@@ -9,17 +9,27 @@
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classModel}{Model}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classModel_a99a77daaaf9b8d8d1ab87bb717b956ac}{set\+All\+Labels}} (std\+::string file\+\_\+path)
 \begin{DoxyCompactList}\small\item\em Set all the labels. \end{DoxyCompactList}\item 
-cv\+::\+Mat \mbox{\hyperlink{classModel_a3030db3a77502ebd204596854f2db961}{predict}} (cv\+::\+Mat input\+\_\+image)
+std\+::vector$<$ cv\+::\+Mat $>$ \mbox{\hyperlink{classModel_a220595f77149be06dad93e61611271af}{predict}} (cv\+::\+Mat input\+\_\+image)
 \begin{DoxyCompactList}\small\item\em Returns model-\/predicted results given an input image. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classModel_a44f5a8e1bf02db043ec062d6f915c706}\label{classModel_a44f5a8e1bf02db043ec062d6f915c706}} 
-void {\bfseries set\+Net} (std\+::string configuration, std\+::string model)
-\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classModel_a0bb87e9a938f94b58a86f99148078ae8}\label{classModel_a0bb87e9a938f94b58a86f99148078ae8}} 
-std\+::vector$<$ std\+::string $>$ {\bfseries all\+\_\+labels}
-\end{DoxyCompactItemize}
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classModel_a36d67aa48cfc45bd74d8b05d6315493b}{get\+Outputs\+Names}} ()
+\begin{DoxyCompactList}\small\item\em Get the output names of the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModel_a44f5a8e1bf02db043ec062d6f915c706}{set\+Net}} (std\+::string configuration, std\+::string model)
+\begin{DoxyCompactList}\small\item\em Set up the network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModel_aff5b65cdfe8143df1f7433d8f2ac004c}{set\+Confidence\+Thresh}} (double conf\+\_\+thresh)
+\begin{DoxyCompactList}\small\item\em Set the confidence threshold. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModel_a68e4f8ff2175e034501465ad418b7619}{set\+N\+M\+S\+Threshold}} (double nms\+\_\+thresh)
+\begin{DoxyCompactList}\small\item\em Set the threshold for non-\/maximal suppression. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModel_a180351c538b4aa038a26f34b8beb8391}{post\+Process}} (const cv\+::\+Mat \&frame, const std\+::vector$<$ cv\+::\+Mat $>$ \&dnn\+\_\+outs)
+\begin{DoxyCompactList}\small\item\em Identifies humans in a frame based on a confidence score. \end{DoxyCompactList}\item 
+std\+::vector$<$ cv\+::\+Rect $>$ \mbox{\hyperlink{classModel_aae96c38fadc6b3f81ace9af7d0a4dd3c}{get\+Boxes}} ()
+\begin{DoxyCompactList}\small\item\em Get all the bounding boxes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classModel_aff06fa2e0596dce9662c22dfdeca4356}\label{classModel_aff06fa2e0596dce9662c22dfdeca4356}} 
+void \mbox{\hyperlink{classModel_aff06fa2e0596dce9662c22dfdeca4356}{set\+N\+M\+S\+Indices}} ()
+\begin{DoxyCompactList}\small\item\em Identify and set all non-\/maximally suppressed indices to get the boxes, confidence scores and class I\+Ds associated to those indices. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classModel_a2caa172fa2343886be8587c62e8ec21b}{get\+N\+M\+S\+Indices}} ()
+\begin{DoxyCompactList}\small\item\em Returns a vector containing all the non-\/maximal-\/suppressed indices. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classModel_a6ef4d5d8a0c927bc8a332e8fa8f3b6c2}{draw\+Boxes}} (cv\+::\+Mat $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Draws the best bounding box around an identified human. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -46,11 +56,85 @@ Destroy the \mbox{\hyperlink{classModel}{Model}} object.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classModel_a3030db3a77502ebd204596854f2db961}\label{classModel_a3030db3a77502ebd204596854f2db961}} 
+\mbox{\Hypertarget{classModel_a6ef4d5d8a0c927bc8a332e8fa8f3b6c2}\label{classModel_a6ef4d5d8a0c927bc8a332e8fa8f3b6c2}} 
+\index{Model@{Model}!drawBoxes@{drawBoxes}}
+\index{drawBoxes@{drawBoxes}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{drawBoxes()}{drawBoxes()}}
+{\footnotesize\ttfamily cv\+::\+Mat Model\+::draw\+Boxes (\begin{DoxyParamCaption}\item[{cv\+::\+Mat $\ast$}]{frame }\end{DoxyParamCaption})}
+
+
+
+Draws the best bounding box around an identified human. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classModel_aae96c38fadc6b3f81ace9af7d0a4dd3c}\label{classModel_aae96c38fadc6b3f81ace9af7d0a4dd3c}} 
+\index{Model@{Model}!getBoxes@{getBoxes}}
+\index{getBoxes@{getBoxes}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{getBoxes()}{getBoxes()}}
+{\footnotesize\ttfamily std\+::vector$<$ cv\+::\+Rect $>$ Model\+::get\+Boxes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get all the bounding boxes. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$cv\+::\+Rect$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classModel_a2caa172fa2343886be8587c62e8ec21b}\label{classModel_a2caa172fa2343886be8587c62e8ec21b}} 
+\index{Model@{Model}!getNMSIndices@{getNMSIndices}}
+\index{getNMSIndices@{getNMSIndices}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{getNMSIndices()}{getNMSIndices()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Model\+::get\+N\+M\+S\+Indices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a vector containing all the non-\/maximal-\/suppressed indices. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classModel_a36d67aa48cfc45bd74d8b05d6315493b}\label{classModel_a36d67aa48cfc45bd74d8b05d6315493b}} 
+\index{Model@{Model}!getOutputsNames@{getOutputsNames}}
+\index{getOutputsNames@{getOutputsNames}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{getOutputsNames()}{getOutputsNames()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Model\+::get\+Outputs\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the output names of the object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::string$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classModel_a180351c538b4aa038a26f34b8beb8391}\label{classModel_a180351c538b4aa038a26f34b8beb8391}} 
+\index{Model@{Model}!postProcess@{postProcess}}
+\index{postProcess@{postProcess}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{postProcess()}{postProcess()}}
+{\footnotesize\ttfamily void Model\+::post\+Process (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{frame,  }\item[{const std\+::vector$<$ cv\+::\+Mat $>$ \&}]{dnn\+\_\+outs }\end{DoxyParamCaption})}
+
+
+
+Identifies humans in a frame based on a confidence score. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & \\
+\hline
+{\em dnn\+\_\+outs} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classModel_a220595f77149be06dad93e61611271af}\label{classModel_a220595f77149be06dad93e61611271af}} 
 \index{Model@{Model}!predict@{predict}}
 \index{predict@{predict}!Model@{Model}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}}
-{\footnotesize\ttfamily cv\+::\+Mat Model\+::predict (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{input\+\_\+image }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ cv\+::\+Mat $>$ Model\+::predict (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{input\+\_\+image }\end{DoxyParamCaption})}
 
 
 
@@ -64,6 +148,13 @@ Returns model-\/predicted results given an input image.
 \begin{DoxyReturn}{Returns}
 cv\+::\+Mat 
 \end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{classModel_a220595f77149be06dad93e61611271af_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{classModel_a99a77daaaf9b8d8d1ab87bb717b956ac}\label{classModel_a99a77daaaf9b8d8d1ab87bb717b956ac}} 
 \index{Model@{Model}!setAllLabels@{setAllLabels}}
 \index{setAllLabels@{setAllLabels}!Model@{Model}}
@@ -77,6 +168,53 @@ Set all the labels.
 
 \begin{DoxyParams}{Parameters}
 {\em file\+\_\+path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classModel_aff5b65cdfe8143df1f7433d8f2ac004c}\label{classModel_aff5b65cdfe8143df1f7433d8f2ac004c}} 
+\index{Model@{Model}!setConfidenceThresh@{setConfidenceThresh}}
+\index{setConfidenceThresh@{setConfidenceThresh}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{setConfidenceThresh()}{setConfidenceThresh()}}
+{\footnotesize\ttfamily void Model\+::set\+Confidence\+Thresh (\begin{DoxyParamCaption}\item[{double}]{conf\+\_\+thresh }\end{DoxyParamCaption})}
+
+
+
+Set the confidence threshold. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em conf\+\_\+thresh} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classModel_a44f5a8e1bf02db043ec062d6f915c706}\label{classModel_a44f5a8e1bf02db043ec062d6f915c706}} 
+\index{Model@{Model}!setNet@{setNet}}
+\index{setNet@{setNet}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{setNet()}{setNet()}}
+{\footnotesize\ttfamily void Model\+::set\+Net (\begin{DoxyParamCaption}\item[{std\+::string}]{configuration,  }\item[{std\+::string}]{model }\end{DoxyParamCaption})}
+
+
+
+Set up the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em configuration} & \\
+\hline
+{\em model} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classModel_a68e4f8ff2175e034501465ad418b7619}\label{classModel_a68e4f8ff2175e034501465ad418b7619}} 
+\index{Model@{Model}!setNMSThreshold@{setNMSThreshold}}
+\index{setNMSThreshold@{setNMSThreshold}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{setNMSThreshold()}{setNMSThreshold()}}
+{\footnotesize\ttfamily void Model\+::set\+N\+M\+S\+Threshold (\begin{DoxyParamCaption}\item[{double}]{nms\+\_\+thresh }\end{DoxyParamCaption})}
+
+
+
+Set the threshold for non-\/maximal suppression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nms\+\_\+thresh} & \\
 \hline
 \end{DoxyParams}
 

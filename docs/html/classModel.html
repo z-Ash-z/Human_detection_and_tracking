@@ -20,7 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="9097932.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Human detection and tracking
    &#160;<span id="projectnumber">0.1</span>
@@ -65,7 +65,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classModel-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Model Class Reference</div>  </div>
@@ -83,18 +82,37 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a99a77daaaf9b8d8d1ab87bb717b956ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#a99a77daaaf9b8d8d1ab87bb717b956ac">setAllLabels</a> (std::string file_path)</td></tr>
 <tr class="memdesc:a99a77daaaf9b8d8d1ab87bb717b956ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all the labels.  <a href="classModel.html#a99a77daaaf9b8d8d1ab87bb717b956ac">More...</a><br /></td></tr>
 <tr class="separator:a99a77daaaf9b8d8d1ab87bb717b956ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3030db3a77502ebd204596854f2db961"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#a3030db3a77502ebd204596854f2db961">predict</a> (cv::Mat input_image)</td></tr>
-<tr class="memdesc:a3030db3a77502ebd204596854f2db961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns model-predicted results given an input image.  <a href="classModel.html#a3030db3a77502ebd204596854f2db961">More...</a><br /></td></tr>
-<tr class="separator:a3030db3a77502ebd204596854f2db961"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44f5a8e1bf02db043ec062d6f915c706"><td class="memItemLeft" align="right" valign="top"><a id="a44f5a8e1bf02db043ec062d6f915c706"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNet</b> (std::string configuration, std::string model)</td></tr>
+<tr class="memitem:a220595f77149be06dad93e61611271af"><td class="memItemLeft" align="right" valign="top">std::vector&lt; cv::Mat &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#a220595f77149be06dad93e61611271af">predict</a> (cv::Mat input_image)</td></tr>
+<tr class="memdesc:a220595f77149be06dad93e61611271af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns model-predicted results given an input image.  <a href="classModel.html#a220595f77149be06dad93e61611271af">More...</a><br /></td></tr>
+<tr class="separator:a220595f77149be06dad93e61611271af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36d67aa48cfc45bd74d8b05d6315493b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#a36d67aa48cfc45bd74d8b05d6315493b">getOutputsNames</a> ()</td></tr>
+<tr class="memdesc:a36d67aa48cfc45bd74d8b05d6315493b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the output names of the object.  <a href="classModel.html#a36d67aa48cfc45bd74d8b05d6315493b">More...</a><br /></td></tr>
+<tr class="separator:a36d67aa48cfc45bd74d8b05d6315493b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44f5a8e1bf02db043ec062d6f915c706"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#a44f5a8e1bf02db043ec062d6f915c706">setNet</a> (std::string configuration, std::string model)</td></tr>
+<tr class="memdesc:a44f5a8e1bf02db043ec062d6f915c706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up the network.  <a href="classModel.html#a44f5a8e1bf02db043ec062d6f915c706">More...</a><br /></td></tr>
 <tr class="separator:a44f5a8e1bf02db043ec062d6f915c706"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a0bb87e9a938f94b58a86f99148078ae8"><td class="memItemLeft" align="right" valign="top"><a id="a0bb87e9a938f94b58a86f99148078ae8"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>all_labels</b></td></tr>
-<tr class="separator:a0bb87e9a938f94b58a86f99148078ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff5b65cdfe8143df1f7433d8f2ac004c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#aff5b65cdfe8143df1f7433d8f2ac004c">setConfidenceThresh</a> (double conf_thresh)</td></tr>
+<tr class="memdesc:aff5b65cdfe8143df1f7433d8f2ac004c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the confidence threshold.  <a href="classModel.html#aff5b65cdfe8143df1f7433d8f2ac004c">More...</a><br /></td></tr>
+<tr class="separator:aff5b65cdfe8143df1f7433d8f2ac004c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e4f8ff2175e034501465ad418b7619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#a68e4f8ff2175e034501465ad418b7619">setNMSThreshold</a> (double nms_thresh)</td></tr>
+<tr class="memdesc:a68e4f8ff2175e034501465ad418b7619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the threshold for non-maximal suppression.  <a href="classModel.html#a68e4f8ff2175e034501465ad418b7619">More...</a><br /></td></tr>
+<tr class="separator:a68e4f8ff2175e034501465ad418b7619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a180351c538b4aa038a26f34b8beb8391"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#a180351c538b4aa038a26f34b8beb8391">postProcess</a> (const cv::Mat &amp;frame, const std::vector&lt; cv::Mat &gt; &amp;dnn_outs)</td></tr>
+<tr class="memdesc:a180351c538b4aa038a26f34b8beb8391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifies humans in a frame based on a confidence score.  <a href="classModel.html#a180351c538b4aa038a26f34b8beb8391">More...</a><br /></td></tr>
+<tr class="separator:a180351c538b4aa038a26f34b8beb8391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae96c38fadc6b3f81ace9af7d0a4dd3c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; cv::Rect &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#aae96c38fadc6b3f81ace9af7d0a4dd3c">getBoxes</a> ()</td></tr>
+<tr class="memdesc:aae96c38fadc6b3f81ace9af7d0a4dd3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all the bounding boxes.  <a href="classModel.html#aae96c38fadc6b3f81ace9af7d0a4dd3c">More...</a><br /></td></tr>
+<tr class="separator:aae96c38fadc6b3f81ace9af7d0a4dd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff06fa2e0596dce9662c22dfdeca4356"><td class="memItemLeft" align="right" valign="top"><a id="aff06fa2e0596dce9662c22dfdeca4356"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#aff06fa2e0596dce9662c22dfdeca4356">setNMSIndices</a> ()</td></tr>
+<tr class="memdesc:aff06fa2e0596dce9662c22dfdeca4356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identify and set all non-maximally suppressed indices to get the boxes, confidence scores and class IDs associated to those indices. <br /></td></tr>
+<tr class="separator:aff06fa2e0596dce9662c22dfdeca4356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2caa172fa2343886be8587c62e8ec21b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#a2caa172fa2343886be8587c62e8ec21b">getNMSIndices</a> ()</td></tr>
+<tr class="memdesc:a2caa172fa2343886be8587c62e8ec21b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector containing all the non-maximal-suppressed indices.  <a href="classModel.html#a2caa172fa2343886be8587c62e8ec21b">More...</a><br /></td></tr>
+<tr class="separator:a2caa172fa2343886be8587c62e8ec21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ef4d5d8a0c927bc8a332e8fa8f3b6c2"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModel.html#a6ef4d5d8a0c927bc8a332e8fa8f3b6c2">drawBoxes</a> (cv::Mat *frame)</td></tr>
+<tr class="memdesc:a6ef4d5d8a0c927bc8a332e8fa8f3b6c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the best bounding box around an identified human.  <a href="classModel.html#a6ef4d5d8a0c927bc8a332e8fa8f3b6c2">More...</a><br /></td></tr>
+<tr class="separator:a6ef4d5d8a0c927bc8a332e8fa8f3b6c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae3b375de5f6df4faf74a95d64748e048"></a>
@@ -136,14 +154,138 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3030db3a77502ebd204596854f2db961"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3030db3a77502ebd204596854f2db961">&#9670;&nbsp;</a></span>predict()</h2>
+<a id="a6ef4d5d8a0c927bc8a332e8fa8f3b6c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef4d5d8a0c927bc8a332e8fa8f3b6c2">&#9670;&nbsp;</a></span>drawBoxes()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">cv::Mat Model::predict </td>
+          <td class="memname">cv::Mat Model::drawBoxes </td>
+          <td>(</td>
+          <td class="paramtype">cv::Mat *&#160;</td>
+          <td class="paramname"><em>frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the best bounding box around an identified human. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>cv::Mat </dd></dl>
+
+</div>
+</div>
+<a id="aae96c38fadc6b3f81ace9af7d0a4dd3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae96c38fadc6b3f81ace9af7d0a4dd3c">&#9670;&nbsp;</a></span>getBoxes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; cv::Rect &gt; Model::getBoxes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get all the bounding boxes. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;cv::Rect&gt; </dd></dl>
+
+</div>
+</div>
+<a id="a2caa172fa2343886be8587c62e8ec21b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2caa172fa2343886be8587c62e8ec21b">&#9670;&nbsp;</a></span>getNMSIndices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int &gt; Model::getNMSIndices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a vector containing all the non-maximal-suppressed indices. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;int&gt; </dd></dl>
+
+</div>
+</div>
+<a id="a36d67aa48cfc45bd74d8b05d6315493b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36d67aa48cfc45bd74d8b05d6315493b">&#9670;&nbsp;</a></span>getOutputsNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Model::getOutputsNames </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the output names of the object. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;std::string&gt; </dd></dl>
+
+</div>
+</div>
+<a id="a180351c538b4aa038a26f34b8beb8391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a180351c538b4aa038a26f34b8beb8391">&#9670;&nbsp;</a></span>postProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Model::postProcess </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;&#160;</td>
+          <td class="paramname"><em>frame</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; cv::Mat &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dnn_outs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Identifies humans in a frame based on a confidence score. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td></td></tr>
+    <tr><td class="paramname">dnn_outs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a220595f77149be06dad93e61611271af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a220595f77149be06dad93e61611271af">&#9670;&nbsp;</a></span>predict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; cv::Mat &gt; Model::predict </td>
           <td>(</td>
           <td class="paramtype">cv::Mat&#160;</td>
           <td class="paramname"><em>input_image</em></td><td>)</td>
@@ -160,6 +302,15 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>cv::Mat </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classModel_a220595f77149be06dad93e61611271af_cgraph.png" border="0" usemap="#classModel_a220595f77149be06dad93e61611271af_cgraph" alt=""/></div>
+<map name="classModel_a220595f77149be06dad93e61611271af_cgraph" id="classModel_a220595f77149be06dad93e61611271af_cgraph">
+<area shape="rect" title="Returns model&#45;predicted results given an input image." alt="" coords="5,5,120,32"/>
+<area shape="rect" href="classModel.html#a36d67aa48cfc45bd74d8b05d6315493b" title="Get the output names of the object." alt="" coords="168,5,356,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -183,6 +334,95 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">file_path</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aff5b65cdfe8143df1f7433d8f2ac004c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff5b65cdfe8143df1f7433d8f2ac004c">&#9670;&nbsp;</a></span>setConfidenceThresh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Model::setConfidenceThresh </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>conf_thresh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the confidence threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conf_thresh</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a44f5a8e1bf02db043ec062d6f915c706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44f5a8e1bf02db043ec062d6f915c706">&#9670;&nbsp;</a></span>setNet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Model::setNet </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>configuration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>model</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set up the network. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">configuration</td><td></td></tr>
+    <tr><td class="paramname">model</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a68e4f8ff2175e034501465ad418b7619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68e4f8ff2175e034501465ad418b7619">&#9670;&nbsp;</a></span>setNMSThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Model::setNMSThreshold </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>nms_thresh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the threshold for non-maximal suppression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nms_thresh</td><td></td></tr>
   </table>
   </dd>
 </dl>

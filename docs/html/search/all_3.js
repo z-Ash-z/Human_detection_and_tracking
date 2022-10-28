@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['predict_3',['predict',['../classModel.html#a3030db3a77502ebd204596854f2db961',1,'Model']]]
+  ['model_8',['Model',['../classModel.html',1,'Model'],['../classModel.html#ae3b375de5f6df4faf74a95d64748e048',1,'Model::Model()']]]
 ];

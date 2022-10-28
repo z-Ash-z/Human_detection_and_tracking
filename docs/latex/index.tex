@@ -1,0 +1,158 @@
+A C++ Module for new robotics-\/based product of A\+C\+ME Robotics using high-\/quality engineering practices to detect and track Humans and return their position in the robot\textquotesingle{}s reference frame.
+
+\href{https://github.com/z-Ash-z/Human_detection_and_tracking/actions/workflows/build_and_coveralls.yml}{\texttt{ }} \href{https://coveralls.io/github/z-Ash-z/Human_detection_and_tracking?branch=main}{\texttt{ }} \hypertarget{index_autotoc_md1}{}\doxysection{$<$a href=\char`\"{}https\+://opensource.\+org/licenses/\+M\+I\+T\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/badge/\+License-\/\+M\+I\+T-\/blue.\+svg\char`\"{} alt=\char`\"{}\+License\+: M\+I\+T\char`\"{}/$>$$<$/a$>$}\label{index_autotoc_md1}
+\hypertarget{index_autotoc_md2}{}\doxysection{Authors}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/z-Ash-z}{\texttt{ Aneesh Chodisetty}} -\/ 117359893
+\item \href{https://github.com/Bhargav-Soothram}{\texttt{ Bhargav Kumar Soothram}} -\/ 117041088
+\item \href{https://github.com/roboticistjoseph}{\texttt{ Joseph Pranadeer Reddy Katakam}} -\/ 117517958
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{Table of Contents}\label{index_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item \href{\#introduction}{\texttt{ Introduction}}
+\item \href{\#deliverables}{\texttt{ Deliverables}}
+\item \href{\#project-proposal}{\texttt{ Proposal Documentation}}
+\item \href{\#system-design}{\texttt{ Development Process}}
+\item \href{\#system-architecture}{\texttt{ U\+ML Diagrams}}
+\item \href{\#dependencies}{\texttt{ Dependencies}}
+\item \href{\#tools-used}{\texttt{ Tools}}
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md4}{}\doxysection{Introduction}\label{index_autotoc_md4}
+Object detection and tracking is a computer vision task that has become essential for many robot applications. The object detection and tracking is the base for autonomous robots in specific. Suppose there is a autonomous delivery robot that is on a mission, it has to identify objects, track them, convert their coordinates to the robot\textquotesingle{}s frame of reference and then try to avoid it. This project is foucussed on solving this problem using existing state-\/of-\/art object detection algorithms. ~\newline
+
+
+As per Acme Robotic\textquotesingle{}s requirement, we will use the input from a monocular camera to detect and track an object. This object is then converted to the robot\textquotesingle{}s frame of reference. This package is then used by Acme in their robotics-\/based product that will be lauched next year. ~\newline
+
+
+Our system uses Y\+O\+L\+Ov3 model that is trained using \href{https://cocodataset.org/\#home}{\texttt{ C\+O\+CO dataset}} and is built using C++. C\+O\+CO dataset is a large-\/scale object detection, segmentation, and captioning dataset. Our system takes an image from a monocular camera, pre-\/processes the image, passes this image to the trained model, filters out the human object with the highest confidence and then outputs the location of the object in the robot\textquotesingle{}s frame of reference.\hypertarget{index_autotoc_md5}{}\doxysection{Deliverables}\label{index_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item Proposal Documentation
+\item U\+ML Diagrams
+\item Project Package with demonstrated O\+O\+Ps concepts
+\item CI using Git\+Hub
+\item Code Coverage using Coveralls
+\item Unit Tests using Google Test Framework
+\item Developer Level Documentation
+\item Static code analysis with cppcheck
+\item Google C++ Style guide with cpplint validation
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md6}{}\doxysubsection{Project proposal}\label{index_autotoc_md6}
+
+\begin{DoxyItemize}
+\item The project proposal document can be found \href{/assets/proposal/Human_Detection_and_Tracker_Proposal.pdf}{\texttt{ here}}. ~\newline
+
+\item The proposal video can be found \href{https://youtu.be/7sqIBtfbFjk}{\texttt{ here}}. ~\newline
+
+\item The quadchart can be found \href{/assets/phase_1/Quadchart_phase_1.pdf}{\texttt{ here}}. ~\newline
+
+\end{DoxyItemize}\hypertarget{index_autotoc_md7}{}\doxysection{System Design}\label{index_autotoc_md7}
+\hypertarget{index_autotoc_md8}{}\doxysubsection{Development methodology}\label{index_autotoc_md8}
+Agile software development model will be used for the development process where tasks will be tracked using a backlog table. The software is designed in a Test-\/\+Driven Development fashion and implemented using Pair programming technique. The tasks will be outlined for every sprint and after each sprint, the roles of the pair-\/programming group will be interchanged.\hypertarget{index_autotoc_md9}{}\doxysubsection{System architecture}\label{index_autotoc_md9}
+
+\begin{DoxyItemize}
+\item The class diagram can be found \href{/UML/phase_1/HumanDetectionTracking_ClassDiagram.png}{\texttt{ here}}.
+\item The flow of our system is as follows\+: ~\newline
+
+\end{DoxyItemize}
+
+ ~\newline
+\hypertarget{index_autotoc_md10}{}\doxysubsection{Dependencies}\label{index_autotoc_md10}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name }&\cellcolor{\tableheadbgcolor}\textbf{ Version }&\cellcolor{\tableheadbgcolor}\textbf{ License  }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name }&\cellcolor{\tableheadbgcolor}\textbf{ Version }&\cellcolor{\tableheadbgcolor}\textbf{ License  }\\\cline{1-3}
+\endhead
+Ubuntu &20.\+04(L\+TS) &F\+SF Licenses  \\\cline{1-3}
+C++ &14 &Creative Commons Attribution-\/\+Share\+Alike 3.\+0 Unported License  \\\cline{1-3}
+Open\+CV &4.\+6.\+0 &Apache License 2.\+0  \\\cline{1-3}
+Cmake &3.\+16.\+3 &B\+SD 3-\/clause License  \\\cline{1-3}
+\end{longtabu}
+\hypertarget{index_autotoc_md11}{}\doxysubsection{Tools used}\label{index_autotoc_md11}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Usage/\+Type }&\cellcolor{\tableheadbgcolor}\textbf{ Tool name }&\cellcolor{\tableheadbgcolor}\textbf{ License  }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Usage/\+Type }&\cellcolor{\tableheadbgcolor}\textbf{ Tool name }&\cellcolor{\tableheadbgcolor}\textbf{ License  }\\\cline{1-3}
+\endhead
+I\+DE &Visual Studio Code &M\+IT License  \\\cline{1-3}
+CI pipeline &Github CI &Creative Commons Attribution 4.\+0  \\\cline{1-3}
+Code coverage &Coveralls &Coveralls, L\+LC  \\\cline{1-3}
+Running tests &Gtests &B\+SD 3-\/Clause \char`\"{}\+New\char`\"{} or \char`\"{}\+Revised\char`\"{} License  \\\cline{1-3}
+\end{longtabu}
+\hypertarget{index_autotoc_md12}{}\doxysection{Development process}\label{index_autotoc_md12}
+\hypertarget{index_autotoc_md13}{}\doxysection{$<$a href=\char`\"{}https\+://docs.\+google.\+com/spreadsheets/d/1\+Nfs6v8\+O\+He\+C70\+G\+Ft3vi\+Y\+Twk\+H\+F\+Gsq4\+Sff\+Kc7h\+Rbwg\+N\+Cj4/edit?usp=sharing\char`\"{}$>$\+Product\+Backlog$<$/a$>$}\label{index_autotoc_md13}
+\hypertarget{index_autotoc_md14}{}\doxysection{$<$a href=\char`\"{}https\+://docs.\+google.\+com/document/d/1k\+Lpqu\+Lgr\+R\+Sabeeuczr-\/q7\+Xmcqh\+T\+Kq\+Q\+Vr\+V\+\_\+\+Vu5\+U8d\+K\+O\+Y/edit?usp=sharing\char`\"{}$>$\+Sprint Planning$<$/a$>$}\label{index_autotoc_md14}
+\hypertarget{index_autotoc_md15}{}\doxysection{Installing Dependencies}\label{index_autotoc_md15}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Install minimal prerequisites (Ubuntu 18.04 as reference)}
+\DoxyCodeLine{sudo apt update \&\& sudo apt install -\/y cmake g++ wget unzip}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Download and unpack sources}
+\DoxyCodeLine{wget -\/O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip}
+\DoxyCodeLine{unzip opencv.zip}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Create build directory}
+\DoxyCodeLine{mkdir -\/p build \&\& cd build}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Configure}
+\DoxyCodeLine{cmake  ../opencv-\/4.x}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Build}
+\DoxyCodeLine{cmake -\/-\/build .}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# install}
+\DoxyCodeLine{sudo make install}
+\end{DoxyCode}
+\hypertarget{index_autotoc_md16}{}\doxysection{Running the project}\label{index_autotoc_md16}
+\hypertarget{index_autotoc_md17}{}\doxysubsection{Build the model}\label{index_autotoc_md17}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone https://github.com/z-\/Ash-\/z/Human\_detection\_and\_tracking.git}
+\DoxyCodeLine{cd <repository path>}
+\DoxyCodeLine{mkdir build}
+\DoxyCodeLine{cd build}
+\DoxyCodeLine{cmake ..}
+\DoxyCodeLine{make}
+\end{DoxyCode}
+\hypertarget{index_autotoc_md18}{}\doxysubsection{Running the model}\label{index_autotoc_md18}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd <repository path>/build}
+\DoxyCodeLine{./app/human\_detect\_and\_track\_app}
+\end{DoxyCode}
+\hypertarget{index_autotoc_md19}{}\doxysubsection{Running the tests}\label{index_autotoc_md19}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd <repository path>/build}
+\DoxyCodeLine{./test/cpp-\/test}
+\end{DoxyCode}
+\hypertarget{index_autotoc_md20}{}\doxysubsection{Generating doxygen documentation}\label{index_autotoc_md20}
+To install doxygen run the following command\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt-\/get install doxygen}
+\end{DoxyCode}
+
+
+To generate the doxygen documents\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen doxygen.config}
+\end{DoxyCode}
+
+
+The documents generated are store in {\ttfamily ./docs/doxygen} folder.\hypertarget{index_autotoc_md21}{}\doxysection{Known issues/bugs}\label{index_autotoc_md21}
+
+\begin{DoxyEnumerate}
+\item Depends on lighting conditions
+\item Low fps
+\item Identified human is highly sensitive to threhold 
+\end{DoxyEnumerate}

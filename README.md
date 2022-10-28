@@ -54,11 +54,11 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
   Agile software development model will be used for the development process where tasks will be tracked using a backlog table. The software is designed in a Test-Driven Development fashion and implemented using Pair programming technique. The tasks will be outlined for every sprint and after each sprint, the roles of the pair-programming group will be interchanged.
 
 ### System architecture
-- The class diagram can be found [here](/UML/phase_1/HumanDetectionTracking_ClassDiagram.png).
+- The class diagram can be found [here](/UML/phase_2/HumanDetectionTracking_ClassDiagram.png).
 
 - The flow of our system is as follows:  
 
-![Activity Diagram](/UML/phase_1/HumanDetectionTracking_ActivityDiagram.png)  
+![Activity Diagram](/UML/phase_2/HumanDetectionTracking_ActivityDiagram.png)  
 
 
 ### Dependencies  

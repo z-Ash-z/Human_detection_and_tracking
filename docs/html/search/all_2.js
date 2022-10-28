@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['model_2',['Model',['../classModel.html',1,'Model'],['../classModel.html#ae3b375de5f6df4faf74a95d64748e048',1,'Model::Model()']]]
+  ['humantracker_7',['HumanTracker',['../classHumanTracker.html',1,'HumanTracker'],['../classHumanTracker.html#a115173865ad27ca481f216c2b1a459bd',1,'HumanTracker::HumanTracker()']]]
 ];
