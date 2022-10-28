@@ -46,6 +46,20 @@ class HumanTracker {
   const double getFocalLength();
 
   /**
+   * @brief Set the average height 
+   * 
+   * @param new_height 
+   */
+  void setAvgHeight(double new_height);
+
+  /**
+   * @brief Get the average height
+   * 
+   * @return double 
+   */
+  const double getAvgHeight();
+
+  /**
    * @brief Get the Robot Perspective
    * 
    * @param boxes A vector of cv::Rect objects, containing all the bounding boxes.

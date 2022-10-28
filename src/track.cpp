@@ -15,6 +15,7 @@
 #include <track.hpp>
 #include <iostream>
 
+
 HumanTracker::HumanTracker():
         _focal_length{40},
         _average_height{1700}
@@ -28,6 +29,14 @@ void HumanTracker::setFocalLength(double new_f) {
 
 const double HumanTracker::getFocalLength() {
     return _focal_length;
+}
+
+void HumanTracker::setAvgHeight(double new_height) {
+    _average_height = new_height;
+}
+
+const double HumanTracker::getAvgHeight() {
+    return _average_height;
 }
 
 const std::vector<cv::Point3d> HumanTracker::getRobotPerspective(std::vector<cv::Rect> &boxes, std::vector<int> &indices) {
