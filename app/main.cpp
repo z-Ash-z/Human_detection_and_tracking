@@ -11,12 +11,7 @@
  *
  */
 
-#include <iostream>
-#include <memory>
 #include <model.hpp>
-#include <opencv2/dnn/dnn.hpp>
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgcodecs.hpp>
 #include <track.hpp>
 
 

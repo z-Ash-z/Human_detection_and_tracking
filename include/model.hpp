@@ -17,9 +17,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <opencv2/core/mat.hpp>
 #include <opencv2/dnn.hpp>
-#include <opencv2/dnn/all_layers.hpp>
 #include <opencv2/opencv.hpp>
 
 

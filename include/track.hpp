@@ -62,11 +62,11 @@ class HumanTracker {
   /**
    * @brief Get the Robot Perspective
    * 
-   * @param boxes A vector of cv::Rect objects, containing all the bounding boxes.
-   * @param indices NMS suppressed box indices.
-   * @return std::vector<cv::Point3d> The detected human coordinates with respect to the robot's camera.
+   * @param boxes A vector of cv::Rect objects, containing all the bounding boxes
+   * @param indices NMS suppressed box indices
+   * @return std::vector<cv::Point3d> The detected human coordinates with respect to the robot's camera
    */
-  const std::vector<cv::Point3d> getRobotPerspective(std::vector<cv::Rect> &boxes, std::vector<int> &indices);
+  const std::vector<cv::Point3d> getRobotPerspective(const std::vector<cv::Rect> &boxes, const std::vector<int> &indices);
 
  private:
   double _focal_length;     // The focal length of the camera (in mm)

@@ -16,10 +16,7 @@
 #include <iostream>
 
 
-HumanTracker::HumanTracker():
-        _focal_length{40},
-        _average_height{1700}
-        {}
+HumanTracker::HumanTracker() {}
 
 HumanTracker::~HumanTracker() {}
 
@@ -39,7 +36,7 @@ const double HumanTracker::getAvgHeight() {
     return _average_height;
 }
 
-const std::vector<cv::Point3d> HumanTracker::getRobotPerspective(std::vector<cv::Rect> &boxes, std::vector<int> &indices) {
+const std::vector<cv::Point3d> HumanTracker::getRobotPerspective(const std::vector<cv::Rect> &boxes, const std::vector<int> &indices) {
     std::vector<cv::Point3d> world_coordinates;
     for (auto index : indices) {
         cv::Point3d coordinate;
