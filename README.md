@@ -47,12 +47,19 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
   - The proposal video can be found [here](https://youtu.be/7sqIBtfbFjk).  
   - The quadchart can be found [here](/assets/phase_1/Quadchart_phase_1.pdf).  
 
+### Sample Output
+![Sample Output](/results/sample_package_output.png)  
+
 ## System Design
 
 ### Development methodology
 
   Agile software development model will be used for the development process where tasks will be tracked using a backlog table. The software is designed in a Test-Driven Development fashion and implemented using Pair programming technique. The tasks will be outlined for every sprint and after each sprint, the roles of the pair-programming group will be interchanged.
 
+## Development process
+  - Using the Software Engineering Practices, all design and development work was followed Agile Iterative Process (AIP) where product backlog, iteration backlog, and work log were maintained usign appropriate measure. The Sheet can be accessed [here](https://docs.google.com/spreadsheets/d/1Nfs6v8OHeC70GFt3viYTwkHFGsq4SffKc7hRbwgNCj4/edit#gid=0)
+  - Each sprint's notes and reviews have been documented [here](https://docs.google.com/document/d/1kLpquLgrRSabeeuczr-q7XmcqhTKqQVrV_Vu5U8dKOY/edit?usp=sharing)
+  
 ### System architecture
 - The class diagram can be found [here](/UML/phase_2/HumanDetectionTracking_ClassDiagram.png).
 
@@ -78,12 +85,6 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 | CI pipeline | Github CI | Creative Commons Attribution 4.0 |
 | Code coverage | Coveralls | Coveralls, LLC |
 | Running tests | Gtests | BSD 3-Clause "New" or "Revised" License |
-
-## Development process
-
-## [ProductBacklog](https://docs.google.com/spreadsheets/d/1Nfs6v8OHeC70GFt3viYTwkHFGsq4SffKc7hRbwgNCj4/edit?usp=sharing)
-
-## [Sprint Planning](https://docs.google.com/document/d/1kLpquLgrRSabeeuczr-q7XmcqhTKqQVrV_Vu5U8dKOY/edit?usp=sharing)
 
 ## Installing Dependencies
 
