@@ -98,3 +98,21 @@ TEST(complete_module_test, test_case_with_humans_in_noisy_bg) {
     // checking to see if the number of detections are not zero
     ASSERT_FALSE(nms_indices.empty());
 }
+
+TEST(Model_class_test, test_case_initializing_the_model) {
+    // Network setup
+    Model model;
+    ASSERT_NO_THROW(model.setAllLabels("dependencies/coco.names"));
+    ASSERT_NO_THROW(model.setNet("dependencies/yolov3.cfg", "dependencies/yolov3.weights"));
+    ASSERT_NO_THROW(model.setConfidenceThresh(0.5));
+    ASSERT_NO_THROW(model.setNMSThreshold(0.4));
+}
+
+TEST(HumanTracker_class_test, test_case_initializing_tracker_class) {
+    // setting the initial parameters for the class
+    HumanTracker humans;
+    humans.setFocalLength(25);
+    humans.setAvgHeight(170);
+    ASSERT_EQ(humans.getFocalLength(), 25.00);
+    ASSERT_EQ(humans.getAvgHeight(), 170.00);
+}
