@@ -35,7 +35,11 @@ jobs:
       
       # Install some system pacakges
       - name: Install packages
-        run: sudo apt install -y lcov
+        run: sudo apt install -y lcov && pip3 install --user cpp-coveralls
+
+      #install OpenCV and download weight file
+      - name: Install Dependencies
+        run: sudo chmod a+x install_dependencies.sh && ./install_dependencies.sh
 
       # Run CMake to setup compilation flags
       - name: Configure Coverage CMake 
