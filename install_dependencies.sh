@@ -6,6 +6,7 @@ mkdir -p build && cd build # Create build directory
 cmake  ../opencv-4.x # Configure
 cmake --build . # Build
 sudo make install # Install
+cd ..
 
 # Dowload yolo v3 weights
 cd dependencies
