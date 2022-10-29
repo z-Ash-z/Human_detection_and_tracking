@@ -1,0 +1,127 @@
+\hypertarget{classHumanTracker}{}\doxysection{Human\+Tracker Class Reference}
+\label{classHumanTracker}\index{HumanTracker@{HumanTracker}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classHumanTracker_a115173865ad27ca481f216c2b1a459bd}{Human\+Tracker}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Human Tracker object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classHumanTracker_a282a02afbfbf5c60947ba226b9fbc2fe}{$\sim$\+Human\+Tracker}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Human Tracker object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHumanTracker_ae675f1ad14cf05a20e9b414b6850e190}{set\+Focal\+Length}} (double new\+\_\+f)
+\begin{DoxyCompactList}\small\item\em Set the Focal Length of the camera. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{classHumanTracker_aa4dbfba2254ce21f85e6a677185a9ad6}{get\+Focal\+Length}} ()
+\begin{DoxyCompactList}\small\item\em Get the Focal Length of the camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHumanTracker_aafd385082b40611a6c31bbb011025053}{set\+Avg\+Height}} (double new\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Set the average height. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{classHumanTracker_a645d8509534959e8ac99f9f19181edd1}{get\+Avg\+Height}} ()
+\begin{DoxyCompactList}\small\item\em Get the average height. \end{DoxyCompactList}\item 
+const std\+::vector$<$ cv\+::\+Point3d $>$ \mbox{\hyperlink{classHumanTracker_a450ac80ea58a22e901bf384484892d21}{get\+Robot\+Perspective}} (const std\+::vector$<$ cv\+::\+Rect $>$ \&boxes, const std\+::vector$<$ int $>$ \&indices)
+\begin{DoxyCompactList}\small\item\em Get the Robot Perspective. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHumanTracker_a115173865ad27ca481f216c2b1a459bd}\label{classHumanTracker_a115173865ad27ca481f216c2b1a459bd}} 
+\index{HumanTracker@{HumanTracker}!HumanTracker@{HumanTracker}}
+\index{HumanTracker@{HumanTracker}!HumanTracker@{HumanTracker}}
+\doxysubsubsection{\texorpdfstring{HumanTracker()}{HumanTracker()}}
+{\footnotesize\ttfamily Human\+Tracker\+::\+Human\+Tracker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new Human Tracker object. 
+
+\mbox{\Hypertarget{classHumanTracker_a282a02afbfbf5c60947ba226b9fbc2fe}\label{classHumanTracker_a282a02afbfbf5c60947ba226b9fbc2fe}} 
+\index{HumanTracker@{HumanTracker}!````~HumanTracker@{$\sim$HumanTracker}}
+\index{````~HumanTracker@{$\sim$HumanTracker}!HumanTracker@{HumanTracker}}
+\doxysubsubsection{\texorpdfstring{$\sim$HumanTracker()}{~HumanTracker()}}
+{\footnotesize\ttfamily Human\+Tracker\+::$\sim$\+Human\+Tracker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the Human Tracker object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHumanTracker_a645d8509534959e8ac99f9f19181edd1}\label{classHumanTracker_a645d8509534959e8ac99f9f19181edd1}} 
+\index{HumanTracker@{HumanTracker}!getAvgHeight@{getAvgHeight}}
+\index{getAvgHeight@{getAvgHeight}!HumanTracker@{HumanTracker}}
+\doxysubsubsection{\texorpdfstring{getAvgHeight()}{getAvgHeight()}}
+{\footnotesize\ttfamily const double Human\+Tracker\+::get\+Avg\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the average height. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHumanTracker_aa4dbfba2254ce21f85e6a677185a9ad6}\label{classHumanTracker_aa4dbfba2254ce21f85e6a677185a9ad6}} 
+\index{HumanTracker@{HumanTracker}!getFocalLength@{getFocalLength}}
+\index{getFocalLength@{getFocalLength}!HumanTracker@{HumanTracker}}
+\doxysubsubsection{\texorpdfstring{getFocalLength()}{getFocalLength()}}
+{\footnotesize\ttfamily const double Human\+Tracker\+::get\+Focal\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Focal Length of the camera. 
+
+\begin{DoxyReturn}{Returns}
+const double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHumanTracker_a450ac80ea58a22e901bf384484892d21}\label{classHumanTracker_a450ac80ea58a22e901bf384484892d21}} 
+\index{HumanTracker@{HumanTracker}!getRobotPerspective@{getRobotPerspective}}
+\index{getRobotPerspective@{getRobotPerspective}!HumanTracker@{HumanTracker}}
+\doxysubsubsection{\texorpdfstring{getRobotPerspective()}{getRobotPerspective()}}
+{\footnotesize\ttfamily const std\+::vector$<$ cv\+::\+Point3d $>$ Human\+Tracker\+::get\+Robot\+Perspective (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ cv\+::\+Rect $>$ \&}]{boxes,  }\item[{const std\+::vector$<$ int $>$ \&}]{indices }\end{DoxyParamCaption})}
+
+
+
+Get the Robot Perspective. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em boxes} & A vector of cv\+::\+Rect objects, containing all the bounding boxes \\
+\hline
+{\em indices} & N\+MS suppressed box indices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$cv\+::\+Point3d$>$ The detected human coordinates with respect to the robot\textquotesingle{}s camera 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHumanTracker_aafd385082b40611a6c31bbb011025053}\label{classHumanTracker_aafd385082b40611a6c31bbb011025053}} 
+\index{HumanTracker@{HumanTracker}!setAvgHeight@{setAvgHeight}}
+\index{setAvgHeight@{setAvgHeight}!HumanTracker@{HumanTracker}}
+\doxysubsubsection{\texorpdfstring{setAvgHeight()}{setAvgHeight()}}
+{\footnotesize\ttfamily void Human\+Tracker\+::set\+Avg\+Height (\begin{DoxyParamCaption}\item[{double}]{new\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+Set the average height. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+height} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHumanTracker_ae675f1ad14cf05a20e9b414b6850e190}\label{classHumanTracker_ae675f1ad14cf05a20e9b414b6850e190}} 
+\index{HumanTracker@{HumanTracker}!setFocalLength@{setFocalLength}}
+\index{setFocalLength@{setFocalLength}!HumanTracker@{HumanTracker}}
+\doxysubsubsection{\texorpdfstring{setFocalLength()}{setFocalLength()}}
+{\footnotesize\ttfamily void Human\+Tracker\+::set\+Focal\+Length (\begin{DoxyParamCaption}\item[{double}]{new\+\_\+f }\end{DoxyParamCaption})}
+
+
+
+Set the Focal Length of the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+f} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/track.\+hpp\item 
+src/track.\+cpp\end{DoxyCompactItemize}

@@ -1,9 +1,9 @@
 /**
- * @file preprocess.hpp
+ * @file main.cpp
  * @author Aneesh Chodisetty (aneeshc@umd.edu)
  * @author Bhargav Kumar Soothram (bsoothra@umd.edu)
  * @author Joseph Pranadheer Reddy Katakam (jkatak@umd.edu)
- * @brief Header file for model.cpp
+ * @brief Driver file for module execution
  * @version 0.1
  * @date 2022-10-10
  *
@@ -11,64 +11,55 @@
  *
  */
 
-#include <iostream>
 #include <model.hpp>
-#include <opencv2/highgui.hpp>
 #include <track.hpp>
-
-float min_confidence_score = 0.5;
 
 int main() {
   Model model;
   model.setAllLabels("dependencies/coco.names");
   model.setNet("dependencies/yolov3.cfg", "dependencies/yolov3.weights");
+  model.setConfidenceThresh(0.5);
+  model.setNMSThreshold(0.4);
+
+  HumanTracker humans;
+  humans.setFocalLength(25);
+  humans.setAvgHeight(170);
   cv::VideoCapture cap(0);
-  int count = 0;
+
   while (cap.isOpened()) {
     cv::Mat frame;
     bool isFrame = cap.read(frame);
     if (!isFrame) {
       break;
     }
-    count++;
-    if (count == 1) {
-      break;
-    }
-    cv::Mat frame_outputs = model.predict(frame);
-    // std::cout << frame_outputs.size() << '\n';
 
-    // cv::Mat results(frame_outputs.size[0], frame_outputs.size[1], CV_32F,
-    // frame_outputs.ptr<float>()); std::cout << results.size[0] << ' ' <<
-    // results.size[1] << '\n';
-    // // Run through all the predictions
-    // for (int i = 0; i < results.rows; i++) {
-    //   int class_id = int(results.at<float>(i, 1));
-    //   float confidence = results.at<float>(i, 2);
-    //   std::cout << confidence << '\n';
-    //   // Check if the detection is over the min threshold and then draw bbox
-    //   if (confidence > min_confidence_score){
-    //       std::cout << "Yeayy!" << '\n';
-    //       int bboxX = int(results.at<float>(i, 3) * frame.cols);
-    //       int bboxY = int(results.at<float>(i, 4) * frame.rows);
-    //       int bboxWidth = int(results.at<float>(i, 5) * frame.cols - bboxX);
-    //       int bboxHeight = int(results.at<float>(i, 6) * frame.rows - bboxY);
-    //       cv::rectangle(frame, cv::Point(bboxX, bboxY),
-    //                     cv::Point(bboxX + bboxWidth, bboxY + bboxHeight),
-    //                     cv::Scalar(0,0,255), 2);
-    //       std::string class_name = model.all_labels[class_id-1];
-    //       cv::putText(frame, class_name + " " +
-    //       std::to_string(int(confidence*100)) +
-    //               "%", cv::Point(bboxX, bboxY - 10),
-    //               cv::FONT_HERSHEY_SIMPLEX, 1.5, cv::Scalar(0,255,0), 2);
-    //   }
-    // }
-    // cv::imshow("frame", frame);
-    // int k = cv::waitKey(10);
-    //   if (k == 113) {
-    //       break;
-    //   }
+    std::vector<cv::Mat> frame_outputs = model.predict(frame);
+
+    model.postProcess(frame, frame_outputs);
+    model.setNMSIndices();
+
+    std::vector<cv::Rect> all_boxes = model.getBoxes();
+    std::vector<int> nms_indices = model.getNMSIndices();
+
+    // check to see if humans are detected
+    if (static_cast<int>(nms_indices.size()) != 0) {
+      // print the number of detections
+      std::cout << "/nHumans Detected: " << static_cast<int>(nms_indices.size()) << std::endl;
+
+      // transforming to robot coordinates
+      humans.getRobotPerspective(all_boxes, nms_indices);
+
+      // track the detected humans
+      frame = model.drawBoxes(&frame);
+      cv::imshow("Boxes", frame);
+    } else {
+      std::cout << std::endl << "No Humans were detected!" << std::endl;
+    }
+
+    cv::waitKey(1);
   }
   cap.release();
   cv::destroyAllWindows();
+
   return 0;
 }

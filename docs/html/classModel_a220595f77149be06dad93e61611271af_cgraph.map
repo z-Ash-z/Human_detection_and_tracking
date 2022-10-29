@@ -1,0 +1,4 @@
+<map id="Model::predict" name="Model::predict">
+<area shape="rect" id="node1" title="Returns model&#45;predicted results given an input image." alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node2" href="$classModel.html#a36d67aa48cfc45bd74d8b05d6315493b" title="Get the output names of the object." alt="" coords="168,5,356,32"/>
+</map>

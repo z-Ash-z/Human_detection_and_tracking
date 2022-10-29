@@ -1,9 +1,9 @@
 /**
- * @file preprocess.hpp
+ * @file track.hpp
  * @author Aneesh Chodisetty (aneeshc@umd.edu)
  * @author Bhargav Kumar Soothram (bsoothra@umd.edu)
  * @author Joseph Pranadheer Reddy Katakam (jkatak@umd.edu)
- * @brief Header file for preprocess.cpp
+ * @brief Header file for track.cpp
  * @version 0.1
  * @date 2022-10-10
  *
@@ -17,45 +17,63 @@
 #include <vector>
 #include <opencv2/core/types.hpp>
 
-class Tracker {
+class HumanTracker {
  public:
   /**
-   * @brief Construct a new Tracker object
+   * @brief Construct a new Human Tracker object
    *
    */
-  Tracker();
+  HumanTracker();
 
   /**
-   * @brief Destroy the Tracker object
+   * @brief Destroy the Human Tracker object
    *
    */
-  ~Tracker();
+  ~HumanTracker();
 
   /**
-   * @brief Draws bounding boxes around humans in a given frame
+   * @brief Set the Focal Length of the camera
    *
-   * @param input_image
-   * @param centroids
+   * @param new_f
    */
-  void drawBoundingBoxes(cv::Mat input_image,
-                         std::vector<std::vector<float>> centroids);
+  void setFocalLength(double new_f);
 
   /**
-   * @brief Transforms the image coordinates to the Robot's Perspective
+   * @brief Get the Focal Length of the camera
    *
-   * @param centroids
-   * @param world_coordinates
-   * @return std::vector<std::vector<float>>
+   * @return const double
    */
-  std::vector<std::vector<float>> getRobotPerspective(
-  std::vector<std::vector<float>> centroids,
-  std::vector<std::vector<float>> world_coordinates);
+  const double getFocalLength();
+
+  /**
+   * @brief Set the average height
+   *
+   * @param new_height
+   */
+  void setAvgHeight(double new_height);
+
+  /**
+   * @brief Get the average height
+   *
+   * @return double
+   */
+  const double getAvgHeight();
+
+  /**
+   * @brief Get the Robot Perspective
+   *
+   * @param boxes A vector of cv::Rect objects, containing all the bounding
+   * boxes
+   * @param indices NMS suppressed box indices
+   * @return std::vector<cv::Point3d> The detected human coordinates with
+   * respect to the robot's camera
+   */
+  const std::vector<cv::Point3d> getRobotPerspective(
+      const std::vector<cv::Rect> &boxes, const std::vector<int> &indices);
 
  private:
-  std::vector<std::vector<float>> _intrinsic_params;
-  std::vector<std::vector<float>> _extrinsic_params;
-  std::vector<std::vector<float>> _robot_to_cam_transform;
-  std::vector<std::vector<float>> _projection_matrix;
+  double _focal_length;    // The focal length of the camera (in mm)
+  double _average_height;  // The average human height (in mm)
 };
 
 #endif  // INCLUDE_TRACK_HPP_

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['drawboundingboxes_0',['drawBoundingBoxes',['../classTracker.html#a6f73a91c1f9159f5b6adf3531a387b38',1,'Tracker']]]
+  ['drawboxes_0',['drawBoxes',['../classModel.html#a6ef4d5d8a0c927bc8a332e8fa8f3b6c2',1,'Model']]]
 ];
