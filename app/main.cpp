@@ -33,21 +33,29 @@ int main() {
       break;
     }
 
-    // cv::Mat frame(cv::imread("data/aneesh.jpeg"));
     std::vector<cv::Mat> frame_outputs = model.predict(frame);
 
     model.postProcess(frame, frame_outputs);
-    model.setNMSIndices();  // Need to write a small code snippet to check if at
-                            // all humans are detected in a given frame
-                            // (len(nms_indices) = 0)
+    model.setNMSIndices();
 
     std::vector<cv::Rect> all_boxes = model.getBoxes();
     std::vector<int> nms_indices = model.getNMSIndices();
 
-    humans.getRobotPerspective(all_boxes, nms_indices);
+    // check to see if humans are detected
+    if (static_cast<int>(nms_indices.size()) != 0) {
+      // print the number of detections
+      std::cout << "/nHumans Detected: " << static_cast<int>(nms_indices.size()) << std::endl;
 
-    frame = model.drawBoxes(&frame);
-    cv::imshow("Boxes", frame);
+      // transforming to robot coordinates
+      humans.getRobotPerspective(all_boxes, nms_indices);
+
+      // track the detected humans
+      frame = model.drawBoxes(&frame);
+      cv::imshow("Boxes", frame);
+    } else {
+      std::cout << std::endl << "No Humans were detected!" << std::endl;
+    }
+
     cv::waitKey(1);
   }
   cap.release();
