@@ -14,12 +14,11 @@
 #ifndef INCLUDE_MODEL_HPP_
 #define INCLUDE_MODEL_HPP_
 
-#include <fstream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include <opencv2/dnn.hpp>
 #include <opencv2/opencv.hpp>
-
 
 class Model {
  public:
@@ -52,66 +51,67 @@ class Model {
 
   /**
    * @brief Get the output names of the object
-   * 
-   * @return std::vector<std::string> 
+   *
+   * @return std::vector<std::string>
    */
   std::vector<std::string> getOutputsNames();
 
   /**
    * @brief Set up the network
-   * 
-   * @param configuration 
-   * @param model 
+   *
+   * @param configuration
+   * @param model
    */
   void setNet(std::string configuration, std::string model);
 
   /**
-   * @brief Set the confidence threshold 
-   * 
-   * @param conf_thresh 
+   * @brief Set the confidence threshold
+   *
+   * @param conf_thresh
    */
   void setConfidenceThresh(double conf_thresh);
 
   /**
    * @brief Set the threshold for non-maximal suppression
-   * 
-   * @param nms_thresh 
+   *
+   * @param nms_thresh
    */
   void setNMSThreshold(double nms_thresh);
 
   /**
-  * @brief Identifies humans in a frame based on a confidence score
-  * 
-  * @param frame 
-  * @param dnn_outs 
-  */
+   * @brief Identifies humans in a frame based on a confidence score
+   *
+   * @param frame
+   * @param dnn_outs
+   */
   void postProcess(const cv::Mat &frame, const std::vector<cv::Mat> &dnn_outs);
 
   /**
-   * @brief Get all the bounding boxes 
-   * 
-   * @return std::vector<cv::Rect> 
+   * @brief Get all the bounding boxes
+   *
+   * @return std::vector<cv::Rect>
    */
   std::vector<cv::Rect> getBoxes();
 
   /**
-   * @brief Identify and set all non-maximally suppressed indices to get 
-   *        the boxes, confidence scores and class IDs associated to those indices
+   * @brief Identify and set all non-maximally suppressed indices to get
+   *        the boxes, confidence scores and class IDs associated to those
+   * indices
    */
   void setNMSIndices();
 
   /**
    * @brief Returns a vector containing all the non-maximal-suppressed indices
-   * 
-   * @return std::vector<int> 
+   *
+   * @return std::vector<int>
    */
   std::vector<int> getNMSIndices();
 
   /**
    * @brief Draws the best bounding box around an identified human
-   * 
-   * @param frame 
-   * @return cv::Mat 
+   *
+   * @param frame
+   * @return cv::Mat
    */
   cv::Mat drawBoxes(cv::Mat *frame);
 

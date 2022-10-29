@@ -14,7 +14,6 @@
 #include <model.hpp>
 #include <track.hpp>
 
-
 int main() {
   Model model;
   model.setAllLabels("dependencies/coco.names");
@@ -33,11 +32,14 @@ int main() {
     if (!isFrame) {
       break;
     }
+
     // cv::Mat frame(cv::imread("data/aneesh.jpeg"));
     std::vector<cv::Mat> frame_outputs = model.predict(frame);
 
     model.postProcess(frame, frame_outputs);
-    model.setNMSIndices();
+    model.setNMSIndices();  // Need to write a small code snippet to check if at
+                            // all humans are detected in a given frame
+                            // (len(nms_indices) = 0)
 
     std::vector<cv::Rect> all_boxes = model.getBoxes();
     std::vector<int> nms_indices = model.getNMSIndices();
