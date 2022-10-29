@@ -1,9 +1,9 @@
 /**
- * @file preprocess.hpp
+ * @file main.cpp
  * @author Aneesh Chodisetty (aneeshc@umd.edu)
  * @author Bhargav Kumar Soothram (bsoothra@umd.edu)
  * @author Joseph Pranadheer Reddy Katakam (jkatak@umd.edu)
- * @brief Header file for model.cpp
+ * @brief Driver file for module execution
  * @version 0.1
  * @date 2022-10-10
  *

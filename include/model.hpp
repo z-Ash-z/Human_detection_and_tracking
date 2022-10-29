@@ -1,5 +1,5 @@
 /**
- * @file preprocess.hpp
+ * @file model.hpp
  * @author Aneesh Chodisetty (aneeshc@umd.edu)
  * @author Bhargav Kumar Soothram (bsoothra@umd.edu)
  * @author Joseph Pranadheer Reddy Katakam (jkatak@umd.edu)
