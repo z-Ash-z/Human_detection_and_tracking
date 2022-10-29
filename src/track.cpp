@@ -24,6 +24,14 @@ void HumanTracker::setAvgHeight(double new_height) {
   _average_height = new_height;
 }
 
+const double HumanTracker::getFocalLength() {
+  return _focal_length;
+}
+
+const double HumanTracker::getAvgHeight() {
+  return _average_height;
+}
+
 const std::vector<cv::Point3d> HumanTracker::getRobotPerspective(
     const std::vector<cv::Rect> &boxes, const std::vector<int> &indices) {
   std::vector<cv::Point3d> world_coordinates;
