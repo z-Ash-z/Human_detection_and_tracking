@@ -33,44 +33,47 @@ class HumanTracker {
 
   /**
    * @brief Set the Focal Length of the camera
-   * 
-   * @param new_f 
+   *
+   * @param new_f
    */
   void setFocalLength(double new_f);
 
   /**
    * @brief Get the Focal Length of the camera
-   * 
-   * @return const double 
+   *
+   * @return const double
    */
   const double getFocalLength();
 
   /**
-   * @brief Set the average height 
-   * 
-   * @param new_height 
+   * @brief Set the average height
+   *
+   * @param new_height
    */
   void setAvgHeight(double new_height);
 
   /**
    * @brief Get the average height
-   * 
-   * @return double 
+   *
+   * @return double
    */
   const double getAvgHeight();
 
   /**
    * @brief Get the Robot Perspective
-   * 
-   * @param boxes A vector of cv::Rect objects, containing all the bounding boxes
+   *
+   * @param boxes A vector of cv::Rect objects, containing all the bounding
+   * boxes
    * @param indices NMS suppressed box indices
-   * @return std::vector<cv::Point3d> The detected human coordinates with respect to the robot's camera
+   * @return std::vector<cv::Point3d> The detected human coordinates with
+   * respect to the robot's camera
    */
-  const std::vector<cv::Point3d> getRobotPerspective(const std::vector<cv::Rect> &boxes, const std::vector<int> &indices);
+  const std::vector<cv::Point3d> getRobotPerspective(
+      const std::vector<cv::Rect> &boxes, const std::vector<int> &indices);
 
  private:
-  double _focal_length;     // The focal length of the camera (in mm)
-  double _average_height;   // The average human height (in mm)
+  double _focal_length;    // The focal length of the camera (in mm)
+  double _average_height;  // The average human height (in mm)
 };
 
 #endif  // INCLUDE_TRACK_HPP_

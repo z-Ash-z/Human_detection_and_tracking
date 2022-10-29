@@ -13,7 +13,7 @@
 
 #include <model.hpp>
 
-Model::Model() {}
+Model::Model() : _min_confidence_score{0}, _nms_threshold{0} {}
 
 Model::~Model() {}
 
@@ -30,23 +30,23 @@ void Model::setNet(std::string configuration, std::string model) {
 }
 
 std::vector<std::string> Model::getOutputsNames() {
-    static std::vector<std::string> names;
-    if (names.empty()) {
-        std::vector<int> outLayers = _net.getUnconnectedOutLayers(); // Get the indices of the output layers  
-        std::vector<std::string> layersNames = _net.getLayerNames(); // Get the names of all the layers in the network
-        names.resize(outLayers.size()); // Get the names of the output layers in names
-        for (size_t i = 0; i < outLayers.size(); ++i)
-        names[i] = layersNames[outLayers[i] - 1];
-    }
-    return names;
+  static std::vector<std::string> names;
+  if (names.empty()) {
+    std::vector<int> outLayers =
+        _net.getUnconnectedOutLayers();  // Get the indices of the output layers
+    std::vector<std::string> layersNames =
+        _net.getLayerNames();  // Get the names of all the layers in the network
+    names.resize(
+        outLayers.size());  // Get the names of the output layers in names
+    for (size_t i = 0; i < outLayers.size(); ++i)
+      names[i] = layersNames[outLayers[i] - 1];
+  }
+  return names;
 }
 
 std::vector<cv::Mat> Model::predict(cv::Mat input_image) {
-  int frame_height = input_image.cols;
-  int frame_width = input_image.rows;
   cv::Mat blob;
-  cv::dnn::blobFromImage(input_image, blob, 1. / 255,
-                         cv::Size(416, 416),
+  cv::dnn::blobFromImage(input_image, blob, 1. / 255, cv::Size(416, 416),
                          cv::Scalar(0, 0, 0), true, false);
   _net.setInput(blob);
   std::vector<cv::Mat> outs;
@@ -58,16 +58,15 @@ void Model::setConfidenceThresh(double conf_thresh) {
   _min_confidence_score = conf_thresh;
 }
 
-void Model::setNMSThreshold(double nms_thresh) {
-  _nms_threshold = nms_thresh;
-}
+void Model::setNMSThreshold(double nms_thresh) { _nms_threshold = nms_thresh; }
 
-void Model::postProcess(const cv::Mat &frame, const std::vector<cv::Mat> &dnn_outs) {
+void Model::postProcess(const cv::Mat &frame,
+                        const std::vector<cv::Mat> &dnn_outs) {
   _classIds.clear();
   _confidences.clear();
   _boxes.clear();
   for (size_t i = 0; i < dnn_outs.size(); ++i) {
-    float* data = reinterpret_cast<float*>(dnn_outs[i].data);
+    float *data = reinterpret_cast<float *>(dnn_outs[i].data);
     for (int j = 0; j < dnn_outs[i].rows; ++j, data += dnn_outs[i].cols) {
       cv::Mat scores = dnn_outs[i].row(j).colRange(5, dnn_outs[i].cols);
       cv::Point classIdPoint;
@@ -88,17 +87,14 @@ void Model::postProcess(const cv::Mat &frame, const std::vector<cv::Mat> &dnn_ou
   }
 }
 
-std::vector<cv::Rect> Model::getBoxes() {
-  return _boxes;
-}
+std::vector<cv::Rect> Model::getBoxes() { return _boxes; }
 
 void Model::setNMSIndices() {
-  cv::dnn::NMSBoxes(_boxes, _confidences, _min_confidence_score, _nms_threshold, _nms_indices);
+  cv::dnn::NMSBoxes(_boxes, _confidences, _min_confidence_score, _nms_threshold,
+                    _nms_indices);
 }
 
-std::vector<int> Model::getNMSIndices() {
-  return _nms_indices;
-}
+std::vector<int> Model::getNMSIndices() { return _nms_indices; }
 
 cv::Mat Model::drawBoxes(cv::Mat *frame) {
   for (auto index : _nms_indices) {
@@ -106,25 +102,31 @@ cv::Mat Model::drawBoxes(cv::Mat *frame) {
     double conf = _confidences.at(index);
     int classID = _classIds.at(index);
 
-    int left {box.x};
-    int top {box.y};
-    int right {box.x + box.width};
-    int bottom {box.y + box.height};
-    cv::rectangle(*frame, cv::Point(left, top), cv::Point(right, bottom), cv::Scalar(255, 178, 50), 3);
+    int left{box.x};
+    int top{box.y};
+    int right{box.x + box.width};
+    int bottom{box.y + box.height};
+    cv::rectangle(*frame, cv::Point(left, top), cv::Point(right, bottom),
+                  cv::Scalar(255, 178, 50), 3);
 
-  // Draw the predicted bounding box
-  // Get the label for the class name and its confidence
+    // Draw the predicted bounding box
+    // Get the label for the class name and its confidence
     std::string label = cv::format("%.2f", conf);
     if (!_all_labels.empty()) {
-        CV_Assert(classID < static_cast<int>(_all_labels.size()));
-        label = _all_labels[classID] + ":" + label;
+      CV_Assert(classID < static_cast<int>(_all_labels.size()));
+      label = _all_labels[classID] + ":" + label;
     }
     // Display the label at the top of the bounding box
     int baseLine;
-    cv::Size labelSize = getTextSize(label, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1, &baseLine);
+    cv::Size labelSize =
+        getTextSize(label, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1, &baseLine);
     top = cv::max(top, labelSize.height);
-    cv::rectangle(*frame, cv::Point(left, top - round(1.5*labelSize.height)), cv::Point(left + round(1.5*labelSize.width), top + baseLine), cv::Scalar(255, 255, 255), cv::FILLED);
-    cv::putText(*frame, label, cv::Point(left, top), cv::FONT_HERSHEY_SIMPLEX, 0.75, cv::Scalar(0, 0, 0), 1);
-}
-return *frame;
+    cv::rectangle(
+        *frame, cv::Point(left, top - round(1.5 * labelSize.height)),
+        cv::Point(left + round(1.5 * labelSize.width), top + baseLine),
+        cv::Scalar(255, 255, 255), cv::FILLED);
+    cv::putText(*frame, label, cv::Point(left, top), cv::FONT_HERSHEY_SIMPLEX,
+                0.75, cv::Scalar(0, 0, 0), 1);
+  }
+  return *frame;
 }
