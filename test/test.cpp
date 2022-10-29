@@ -1,9 +1,9 @@
 /**
- * @file preprocess.hpp
+ * @file test.cpp
  * @author Aneesh Chodisetty (aneeshc@umd.edu)
  * @author Bhargav Kumar Soothram (bsoothra@umd.edu)
  * @author Joseph Pranadheer Reddy Katakam (jkatak@umd.edu)
- * @brief Header file for model.cpp
+ * @brief file to perform tests on the working pipeline
  * @version 0.1
  * @date 2022-10-10
  *
@@ -11,6 +11,90 @@
  *
  */
 
+// Google test library for Unit Testing
 #include <gtest/gtest.h>
 
-TEST(dummy, should_pass) { EXPECT_EQ(1, 1); }
+// Test Candidates
+#include "../include/model.hpp"
+#include "../include/track.hpp"
+
+TEST(complete_module_test, test_case_with_no_humans) {
+    // setting up network
+    Model model;
+    model.setAllLabels("dependencies/coco.names");
+    model.setNet("dependencies/yolov3.cfg", "dependencies/yolov3.weights");
+    model.setConfidenceThresh(0.5);
+    model.setNMSThreshold(0.4);
+
+    // reading test image to detect humans
+    cv::Mat frame(cv::imread("test_data/test_img_0.jpg"));
+
+    // detect humans in the test image
+    std::vector<cv::Mat> frame_outputs = model.predict(frame);
+
+    model.postProcess(frame, frame_outputs);
+    model.setNMSIndices();
+
+    std::vector<cv::Rect> all_boxes = model.getBoxes();
+    std::vector<int> nms_indices = model.getNMSIndices();
+
+    // print detections
+    std::cout << "/nNumber of Humans: " << static_cast<int>(nms_indices.size()) << std::endl;
+
+    // checking to see if the number of detections are zero
+    ASSERT_EQ(static_cast<int>(nms_indices.size()), 0);
+}
+
+TEST(complete_module_test, test_case_with_humans_in_clean_bg) {
+    // setting up network
+    Model model;
+    model.setAllLabels("dependencies/coco.names");
+    model.setNet("dependencies/yolov3.cfg", "dependencies/yolov3.weights");
+    model.setConfidenceThresh(0.5);
+    model.setNMSThreshold(0.4);
+
+    // reading test image to detect humans
+    cv::Mat frame(cv::imread("test_data/test_img_1.jpg"));
+
+    // detect humans in the test image
+    std::vector<cv::Mat> frame_outputs = model.predict(frame);
+
+    model.postProcess(frame, frame_outputs);
+    model.setNMSIndices();
+
+    std::vector<cv::Rect> all_boxes = model.getBoxes();
+    std::vector<int> nms_indices = model.getNMSIndices();
+
+    // print detections
+    std::cout << "/nNumber of Humans: " << static_cast<int>(nms_indices.size()) << std::endl;
+
+    // checking to see if the number of detections are 4
+    ASSERT_EQ(static_cast<int>(nms_indices.size()), 4);
+}
+
+TEST(complete_module_test, test_case_with_humans_in_noisy_bg) {
+    // setting up network
+    Model model;
+    model.setAllLabels("dependencies/coco.names");
+    model.setNet("dependencies/yolov3.cfg", "dependencies/yolov3.weights");
+    model.setConfidenceThresh(0.5);
+    model.setNMSThreshold(0.4);
+
+    // reading test image to detect humans
+    cv::Mat frame(cv::imread("test_data/test_img_2.jpg"));
+
+    // detect humans in the test image
+    std::vector<cv::Mat> frame_outputs = model.predict(frame);
+
+    model.postProcess(frame, frame_outputs);
+    model.setNMSIndices();
+
+    std::vector<cv::Rect> all_boxes = model.getBoxes();
+    std::vector<int> nms_indices = model.getNMSIndices();
+
+    // print detections
+    std::cout << "/nNumber of Humans: " << static_cast<int>(nms_indices.size()) << std::endl;
+
+    // checking to see if the number of detections are not zero
+    ASSERT_FALSE(nms_indices.empty());
+}
