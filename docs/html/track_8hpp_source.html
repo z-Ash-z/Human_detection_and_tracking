@@ -20,7 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="9097932.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Human detection and tracking
    &#160;<span id="projectnumber">0.1</span>
@@ -71,44 +71,45 @@ $(function() {
 <div class="title">track.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef INCLUDE_TRACK_HPP_</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define INCLUDE_TRACK_HPP_</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;opencv2/core/types.hpp&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classHumanTracker.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHumanTracker.html">HumanTracker</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="classHumanTracker.html#a115173865ad27ca481f216c2b1a459bd">HumanTracker</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classHumanTracker.html#a282a02afbfbf5c60947ba226b9fbc2fe">~HumanTracker</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classHumanTracker.html#ae675f1ad14cf05a20e9b414b6850e190">setFocalLength</a>(<span class="keywordtype">double</span> new_f);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classHumanTracker.html#aa4dbfba2254ce21f85e6a677185a9ad6">getFocalLength</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classHumanTracker.html#aafd385082b40611a6c31bbb011025053">setAvgHeight</a>(<span class="keywordtype">double</span> new_height);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classHumanTracker.html#a645d8509534959e8ac99f9f19181edd1">getAvgHeight</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">const</span> std::vector&lt;cv::Point3d&gt; <a class="code" href="classHumanTracker.html#a450ac80ea58a22e901bf384484892d21">getRobotPerspective</a>(<span class="keyword">const</span> std::vector&lt;cv::Rect&gt; &amp;boxes, <span class="keyword">const</span> std::vector&lt;int&gt; &amp;indices);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">double</span> _focal_length;     <span class="comment">// The focal length of the camera (in mm)</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">double</span> _average_height;   <span class="comment">// The average human height (in mm)</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif  // INCLUDE_TRACK_HPP_</span></div>
+<a href="track_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#ifndef INCLUDE_TRACK_HPP_</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define INCLUDE_TRACK_HPP_</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;opencv2/core/types.hpp&gt;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classHumanTracker.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHumanTracker.html">HumanTracker</a> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="classHumanTracker.html#a115173865ad27ca481f216c2b1a459bd">HumanTracker</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="classHumanTracker.html#a282a02afbfbf5c60947ba226b9fbc2fe">~HumanTracker</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classHumanTracker.html#ae675f1ad14cf05a20e9b414b6850e190">setFocalLength</a>(<span class="keywordtype">double</span> new_f);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classHumanTracker.html#aa4dbfba2254ce21f85e6a677185a9ad6">getFocalLength</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classHumanTracker.html#aafd385082b40611a6c31bbb011025053">setAvgHeight</a>(<span class="keywordtype">double</span> new_height);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classHumanTracker.html#a645d8509534959e8ac99f9f19181edd1">getAvgHeight</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">const</span> std::vector&lt;cv::Point3d&gt; <a class="code" href="classHumanTracker.html#a450ac80ea58a22e901bf384484892d21">getRobotPerspective</a>(</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="keyword">const</span> std::vector&lt;cv::Rect&gt; &amp;boxes, <span class="keyword">const</span> std::vector&lt;int&gt; &amp;indices);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordtype">double</span> _focal_length;    <span class="comment">// The focal length of the camera (in mm)</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordtype">double</span> _average_height;  <span class="comment">// The average human height (in mm)</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif  // INCLUDE_TRACK_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassHumanTracker_html_a450ac80ea58a22e901bf384484892d21"><div class="ttname"><a href="classHumanTracker.html#a450ac80ea58a22e901bf384484892d21">HumanTracker::getRobotPerspective</a></div><div class="ttdeci">const std::vector&lt; cv::Point3d &gt; getRobotPerspective(const std::vector&lt; cv::Rect &gt; &amp;boxes, const std::vector&lt; int &gt; &amp;indices)</div><div class="ttdoc">Get the Robot Perspective.</div><div class="ttdef"><b>Definition:</b> track.cpp:39</div></div>
-<div class="ttc" id="aclassHumanTracker_html_ae675f1ad14cf05a20e9b414b6850e190"><div class="ttname"><a href="classHumanTracker.html#ae675f1ad14cf05a20e9b414b6850e190">HumanTracker::setFocalLength</a></div><div class="ttdeci">void setFocalLength(double new_f)</div><div class="ttdoc">Set the Focal Length of the camera.</div><div class="ttdef"><b>Definition:</b> track.cpp:23</div></div>
-<div class="ttc" id="aclassHumanTracker_html_a115173865ad27ca481f216c2b1a459bd"><div class="ttname"><a href="classHumanTracker.html#a115173865ad27ca481f216c2b1a459bd">HumanTracker::HumanTracker</a></div><div class="ttdeci">HumanTracker()</div><div class="ttdoc">Construct a new Human Tracker object.</div><div class="ttdef"><b>Definition:</b> track.cpp:19</div></div>
-<div class="ttc" id="aclassHumanTracker_html_a645d8509534959e8ac99f9f19181edd1"><div class="ttname"><a href="classHumanTracker.html#a645d8509534959e8ac99f9f19181edd1">HumanTracker::getAvgHeight</a></div><div class="ttdeci">const double getAvgHeight()</div><div class="ttdoc">Get the average height.</div><div class="ttdef"><b>Definition:</b> track.cpp:35</div></div>
-<div class="ttc" id="aclassHumanTracker_html_aa4dbfba2254ce21f85e6a677185a9ad6"><div class="ttname"><a href="classHumanTracker.html#aa4dbfba2254ce21f85e6a677185a9ad6">HumanTracker::getFocalLength</a></div><div class="ttdeci">const double getFocalLength()</div><div class="ttdoc">Get the Focal Length of the camera.</div><div class="ttdef"><b>Definition:</b> track.cpp:27</div></div>
-<div class="ttc" id="aclassHumanTracker_html"><div class="ttname"><a href="classHumanTracker.html">HumanTracker</a></div><div class="ttdef"><b>Definition:</b> track.hpp:20</div></div>
-<div class="ttc" id="aclassHumanTracker_html_aafd385082b40611a6c31bbb011025053"><div class="ttname"><a href="classHumanTracker.html#aafd385082b40611a6c31bbb011025053">HumanTracker::setAvgHeight</a></div><div class="ttdeci">void setAvgHeight(double new_height)</div><div class="ttdoc">Set the average height.</div><div class="ttdef"><b>Definition:</b> track.cpp:31</div></div>
-<div class="ttc" id="aclassHumanTracker_html_a282a02afbfbf5c60947ba226b9fbc2fe"><div class="ttname"><a href="classHumanTracker.html#a282a02afbfbf5c60947ba226b9fbc2fe">HumanTracker::~HumanTracker</a></div><div class="ttdeci">~HumanTracker()</div><div class="ttdoc">Destroy the Human Tracker object.</div><div class="ttdef"><b>Definition:</b> track.cpp:21</div></div>
+<div class="ttc" id="aclassHumanTracker_html_a450ac80ea58a22e901bf384484892d21"><div class="ttname"><a href="classHumanTracker.html#a450ac80ea58a22e901bf384484892d21">HumanTracker::getRobotPerspective</a></div><div class="ttdeci">const std::vector&lt; cv::Point3d &gt; getRobotPerspective(const std::vector&lt; cv::Rect &gt; &amp;boxes, const std::vector&lt; int &gt; &amp;indices)</div><div class="ttdoc">Get the Robot Perspective.</div><div class="ttdef"><b>Definition:</b> track.cpp:54</div></div>
+<div class="ttc" id="aclassHumanTracker_html_ae675f1ad14cf05a20e9b414b6850e190"><div class="ttname"><a href="classHumanTracker.html#ae675f1ad14cf05a20e9b414b6850e190">HumanTracker::setFocalLength</a></div><div class="ttdeci">void setFocalLength(double new_f)</div><div class="ttdoc">Set the Focal Length of the camera.</div><div class="ttdef"><b>Definition:</b> track.cpp:40</div></div>
+<div class="ttc" id="aclassHumanTracker_html_a115173865ad27ca481f216c2b1a459bd"><div class="ttname"><a href="classHumanTracker.html#a115173865ad27ca481f216c2b1a459bd">HumanTracker::HumanTracker</a></div><div class="ttdeci">HumanTracker()</div><div class="ttdoc">Construct a new Human Tracker object.</div><div class="ttdef"><b>Definition:</b> track.cpp:36</div></div>
+<div class="ttc" id="aclassHumanTracker_html_a645d8509534959e8ac99f9f19181edd1"><div class="ttname"><a href="classHumanTracker.html#a645d8509534959e8ac99f9f19181edd1">HumanTracker::getAvgHeight</a></div><div class="ttdeci">const double getAvgHeight()</div><div class="ttdoc">Get the average height.</div><div class="ttdef"><b>Definition:</b> track.cpp:50</div></div>
+<div class="ttc" id="aclassHumanTracker_html_aa4dbfba2254ce21f85e6a677185a9ad6"><div class="ttname"><a href="classHumanTracker.html#aa4dbfba2254ce21f85e6a677185a9ad6">HumanTracker::getFocalLength</a></div><div class="ttdeci">const double getFocalLength()</div><div class="ttdoc">Get the Focal Length of the camera.</div><div class="ttdef"><b>Definition:</b> track.cpp:46</div></div>
+<div class="ttc" id="aclassHumanTracker_html"><div class="ttname"><a href="classHumanTracker.html">HumanTracker</a></div><div class="ttdef"><b>Definition:</b> track.hpp:39</div></div>
+<div class="ttc" id="aclassHumanTracker_html_aafd385082b40611a6c31bbb011025053"><div class="ttname"><a href="classHumanTracker.html#aafd385082b40611a6c31bbb011025053">HumanTracker::setAvgHeight</a></div><div class="ttdeci">void setAvgHeight(double new_height)</div><div class="ttdoc">Set the average height.</div><div class="ttdef"><b>Definition:</b> track.cpp:42</div></div>
+<div class="ttc" id="aclassHumanTracker_html_a282a02afbfbf5c60947ba226b9fbc2fe"><div class="ttname"><a href="classHumanTracker.html#a282a02afbfbf5c60947ba226b9fbc2fe">HumanTracker::~HumanTracker</a></div><div class="ttdeci">~HumanTracker()</div><div class="ttdoc">Destroy the Human Tracker object.</div><div class="ttdef"><b>Definition:</b> track.cpp:38</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
