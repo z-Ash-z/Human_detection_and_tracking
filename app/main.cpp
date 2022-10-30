@@ -44,7 +44,7 @@ int main() {
     // check to see if humans are detected
     if (static_cast<int>(nms_indices.size()) != 0) {
       // print the number of detections
-      std::cout << "/nHumans Detected: " << static_cast<int>(nms_indices.size()) << std::endl;
+      std::cout << "\nHumans Detected: " << static_cast<int>(nms_indices.size()) << std::endl;
 
       // transforming to robot coordinates
       humans.getRobotPerspective(all_boxes, nms_indices);
