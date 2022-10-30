@@ -7,7 +7,3 @@ cmake  ../opencv-4.x # Configure
 cmake --build . # Build
 sudo make install # Install
 cd ..
-
-# Dowload yolo v3 weights
-cd dependencies
-wget https://github.com/patrick013/Object-Detection---Yolov3/blob/master/model/yolov3.weights
