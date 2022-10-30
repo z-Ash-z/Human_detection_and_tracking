@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Human detection and tracking: Main Page</title>
+<title>Human detection and tracking: Human Dectection and Tracking Module for Acme Robotics</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,7 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="9097932.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Human detection and tracking
    &#160;<span id="projectnumber">0.1</span>
@@ -62,11 +62,166 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Human detection and tracking Documentation</div>  </div>
+<div class="title">Human Dectection and Tracking Module for Acme Robotics </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p>A C++ Module for new robotics-based product of ACME Robotics using high-quality engineering practices to detect and track Humans and return their position in the robot's reference frame.</p>
+<p><a href="https://github.com/z-Ash-z/Human_detection_and_tracking/actions/workflows/build_and_coveralls.yml"><object type="image/svg+xml" data="https://github.com/z-Ash-z/Human_detection_and_tracking/actions/workflows/build_and_coveralls.yml/badge.svg" style="pointer-events: none;">Build Status</object></a> <a href="https://coveralls.io/github/z-Ash-z/Human_detection_and_tracking?branch=main"><object type="image/svg+xml" data="https://coveralls.io/repos/github/z-Ash-z/Human_detection_and_tracking/badge.svg?branch=main" style="pointer-events: none;">Coverage Status</object></a> </p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+&lt;a href="https://opensource.org/licenses/MIT"&gt;&lt;img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"/&gt;&lt;/a&gt;</h1>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Authors</h1>
+<ul>
+<li><a href="https://github.com/z-Ash-z">Aneesh Chodisetty</a> - 117359893</li>
+<li><a href="https://github.com/Bhargav-Soothram">Bhargav Kumar Soothram</a> - 117041088</li>
+<li><a href="https://github.com/roboticistjoseph">Joseph Pranadeer Reddy Katakam</a> - 117517958</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Table of Contents</h1>
+<ol type="1">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#deliverables">Deliverables</a></li>
+<li><a href="#project-proposal">Proposal Documentation</a></li>
+<li><a href="#system-design">Development Process</a></li>
+<li><a href="#system-architecture">UML Diagrams</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#tools-used">Tools</a></li>
+</ol>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Introduction</h1>
+<p>Object detection and tracking is a computer vision task that has become essential for many robot applications. The object detection and tracking is the base for autonomous robots in specific. Suppose there is a autonomous delivery robot that is on a mission, it has to identify objects, track them, convert their coordinates to the robot's frame of reference and then try to avoid it. This project is foucussed on solving this problem using existing state-of-art object detection algorithms. <br  />
+</p>
+<p>As per Acme Robotic's requirement, we will use the input from a monocular camera to detect and track an object. This object is then converted to the robot's frame of reference. This package is then used by Acme in their robotics-based product that will be lauched next year. <br  />
+</p>
+<p>Our system uses YOLOv3 model that is trained using <a href="https://cocodataset.org/#home">COCO dataset</a> and is built using C++. COCO dataset is a large-scale object detection, segmentation, and captioning dataset. Our system takes an image from a monocular camera, pre-processes the image, passes this image to the trained model, filters out the human object with the highest confidence and then outputs the location of the object in the robot's frame of reference.</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Deliverables</h1>
+<ol type="1">
+<li>Proposal Documentation</li>
+<li>UML Diagrams</li>
+<li>Project Package with demonstrated OOPs concepts</li>
+<li>CI using GitHub</li>
+<li>Code Coverage using Coveralls</li>
+<li>Unit Tests using Google Test Framework</li>
+<li>Developer Level Documentation</li>
+<li>Static code analysis with cppcheck</li>
+<li>Google C++ Style guide with cpplint validation</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Project proposal</h2>
+<ul>
+<li>The project proposal document can be found <a href="/assets/proposal/Human_Detection_and_Tracker_Proposal.pdf">here</a>. <br  />
+</li>
+<li>The proposal video can be found <a href="https://youtu.be/7sqIBtfbFjk">here</a>. <br  />
+</li>
+<li>The quadchart can be found <a href="/assets/phase_1/Quadchart_phase_1.pdf">here</a>. <br  />
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Sample Output</h2>
+<p><img src="/results/sample_package_output.png" alt="Sample Output" class="inline"/> <br  />
+</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+System Design</h1>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Development methodology</h2>
+<p>Agile software development model will be used for the development process where tasks will be tracked using a backlog table. The software is designed in a Test-Driven Development fashion and implemented using Pair programming technique. The tasks will be outlined for every sprint and after each sprint, the roles of the pair-programming group will be interchanged.</p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Development process</h1>
+<ul>
+<li>Using the Software Engineering Practices, all design and development work was followed Agile Iterative Process (AIP) where product backlog, iteration backlog, and work log were maintained usign appropriate measure. The Sheet can be accessed <a href="https://docs.google.com/spreadsheets/d/1Nfs6v8OHeC70GFt3viYTwkHFGsq4SffKc7hRbwgNCj4/edit#gid=0">here</a></li>
+<li>Each sprint's notes and reviews have been documented <a href="https://docs.google.com/document/d/1kLpquLgrRSabeeuczr-q7XmcqhTKqQVrV_Vu5U8dKOY/edit?usp=sharing">here</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md11"></a>
+System architecture</h2>
+<ul>
+<li>The class diagram can be found <a href="/UML/phase_2/HumanDetectionTracking_ClassDiagram.png">here</a>.</li>
+<li>The flow of our system is as follows: <br  />
+</li>
+</ul>
+<p><img src="/UML/phase_2/HumanDetectionTracking_ActivityDiagram.png" alt="Activity Diagram" class="inline"/> <br  />
+</p>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Dependencies</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Name </th><th class="markdownTableHeadLeft">Version </th><th class="markdownTableHeadLeft">License  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Ubuntu </td><td class="markdownTableBodyLeft">20.04(LTS) </td><td class="markdownTableBodyLeft">FSF Licenses  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">C++ </td><td class="markdownTableBodyLeft">14 </td><td class="markdownTableBodyLeft">Creative Commons Attribution-ShareAlike 3.0 Unported License  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">OpenCV </td><td class="markdownTableBodyLeft">4.6.0 </td><td class="markdownTableBodyLeft">Apache License 2.0  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">Cmake </td><td class="markdownTableBodyLeft">3.16.3 </td><td class="markdownTableBodyLeft">BSD 3-clause License  </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Tools used</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Usage/Type </th><th class="markdownTableHeadLeft">Tool name </th><th class="markdownTableHeadLeft">License  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">IDE </td><td class="markdownTableBodyLeft">Visual Studio Code </td><td class="markdownTableBodyLeft">MIT License  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">CI pipeline </td><td class="markdownTableBodyLeft">Github CI </td><td class="markdownTableBodyLeft">Creative Commons Attribution 4.0  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Code coverage </td><td class="markdownTableBodyLeft">Coveralls </td><td class="markdownTableBodyLeft">Coveralls, LLC  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">Running tests </td><td class="markdownTableBodyLeft">Gtests </td><td class="markdownTableBodyLeft">BSD 3-Clause "New" or "Revised" License  </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md14"></a>
+Installing Dependencies</h1>
+<div class="fragment"><div class="line"># Install minimal prerequisites (Ubuntu 18.04 as reference)</div>
+<div class="line">sudo apt update &amp;&amp; sudo apt install -y cmake g++ wget unzip</div>
+<div class="line"> </div>
+<div class="line"># Download and unpack sources</div>
+<div class="line">wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip</div>
+<div class="line">unzip opencv.zip</div>
+<div class="line"> </div>
+<div class="line"># Create build directory</div>
+<div class="line">mkdir -p build &amp;&amp; cd build</div>
+<div class="line"> </div>
+<div class="line"># Configure</div>
+<div class="line">cmake  ../opencv-4.x</div>
+<div class="line"> </div>
+<div class="line"># Build</div>
+<div class="line">cmake --build .</div>
+<div class="line"> </div>
+<div class="line"># install</div>
+<div class="line">sudo make install</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md15"></a>
+Running the project</h1>
+<h2><a class="anchor" id="autotoc_md16"></a>
+Build the model</h2>
+<div class="fragment"><div class="line">git clone https://github.com/z-Ash-z/Human_detection_and_tracking.git</div>
+<div class="line">cd &lt;repository path&gt;</div>
+<div class="line">mkdir build</div>
+<div class="line">cd build</div>
+<div class="line">cmake ..</div>
+<div class="line">make</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
+Running the model</h2>
+<div class="fragment"><div class="line">cd &lt;repository path&gt;/build</div>
+<div class="line">./app/human_detect_and_track_app</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md18"></a>
+Running the tests</h2>
+<div class="fragment"><div class="line">cd &lt;repository path&gt;/build</div>
+<div class="line">./test/cpp-test</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
+Generating doxygen documentation</h2>
+<p>To install doxygen run the following command: </p><div class="fragment"><div class="line">sudo apt-get install doxygen</div>
+</div><!-- fragment --><p>To generate the doxygen documents: </p><div class="fragment"><div class="line">doxygen doxygen.config</div>
+</div><!-- fragment --><p>The documents generated are store in <code>./docs/doxygen</code> folder.</p>
+<h1><a class="anchor" id="autotoc_md20"></a>
+Known issues/bugs</h1>
+<ol type="1">
+<li>Depends on lighting conditions</li>
+<li>Low fps</li>
+<li>Identified human is highly sensitive to threhold </li>
+</ol>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
