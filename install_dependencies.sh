@@ -16,3 +16,6 @@ sudo make -j4
 sudo make install
 sudo ldconfig
 echo "OpenCV installed."
+
+# Gdown for downloading gdown
+sudo pip install gdown
