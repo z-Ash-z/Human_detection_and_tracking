@@ -16,8 +16,8 @@
 
 int main() {
   Model model;
-  model.setAllLabels("dependencies/coco.names");
-  model.setNet("dependencies/yolov3.cfg", "dependencies/yolov3.weights");
+  model.setAllLabels("./dependencies/coco.names");
+  model.setNet("./dependencies/yolov3.cfg", "./dependencies/yolov3.weights");
   model.setConfidenceThresh(0.5);
   model.setNMSThreshold(0.4);
 

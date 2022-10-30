@@ -18,9 +18,9 @@
 #include <model.hpp>
 #include <track.hpp>
 
-TEST(OpenCV_Test, OpenCV_Test_Version_Check_Test) {
-    ASSERT_TRUE(CV_MAJOR_VERSION > 3);
-}
+// TEST(OpenCV_Test, OpenCV_Test_Version_Check_Test) {
+//     ASSERT_TRUE(CV_MAJOR_VERSION > 3);
+// }
 
 TEST(complete_module_test, test_case_with_no_humans) {
     // setting up network
@@ -43,7 +43,7 @@ TEST(complete_module_test, test_case_with_no_humans) {
     std::vector<int> nms_indices = model.getNMSIndices();
 
     // print detections
-    std::cout << "/nNumber of Humans: " << static_cast<int>(nms_indices.size()) << std::endl;
+    std::cout << "\nNumber of Humans: " << static_cast<int>(nms_indices.size()) << std::endl;
 
     // checking to see if the number of detections are zero
     ASSERT_EQ(static_cast<int>(nms_indices.size()), 0);

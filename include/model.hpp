@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Aditi Ramadwar, Arunava Basu
+ * Copyright (c) 2022 Aneesh Chodisetty, Bhargav Kumar Soothram, Joseph Pranadheer Reddy Katakam
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the "Software"),
