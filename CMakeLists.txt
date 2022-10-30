@@ -4,13 +4,13 @@
 cmake_minimum_required(VERSION 3.2.1)
 project (human_detector_and_tracker)
 
+# Add project cmake modules to path.
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
 # Add opencv to the required libraries
 FIND_PACKAGE(OpenCV REQUIRED)
 INCLUDE_DIRECTORIES( ${OpenCV_INCLUDE_DIRS})
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-# Add project cmake modules to path.
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake)
 
 # We probably don't want this to run on every build.
 option(COVERAGE "Generate Coverage Data" OFF)
