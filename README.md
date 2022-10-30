@@ -45,7 +45,7 @@ A C++ Module for new robotics-based product of ACME Robotics using high-quality 
 
   - The project proposal document can be found [here](/assets/proposal/Human_Detection_and_Tracker_Proposal.pdf).  
   - The proposal video can be found [here](https://youtu.be/7sqIBtfbFjk).  
-  - The quadchart can be found [here](/assets/phase_1/Quadchart_phase_1.pdf).  
+  - The quadchart can be found [here](/assets/phase_2/Quadchart_phase_2.pdf).  
 
 ### Sample Output
 ![Sample Output](/results/sample_package_output.png)  

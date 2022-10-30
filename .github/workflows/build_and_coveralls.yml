@@ -39,7 +39,7 @@ jobs:
 
       #Install OpenCV
       - name: Install Dependencies
-        run: sudo chmod a+x install_dependencies.sh && ./install_dependencies.sh
+        run: sudo pip install gdown && sudo chmod a+x install_dependencies.sh && ./install_dependencies.sh
 
       #Download weight file
       - name: Download weights
