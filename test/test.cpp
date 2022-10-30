@@ -15,8 +15,12 @@
 #include <gtest/gtest.h>
 
 // Test Candidates
-#include "../include/model.hpp"
-#include "../include/track.hpp"
+#include <model.hpp>
+#include <track.hpp>
+
+TEST(OpenCV_Test, OpenCV_Test_Version_Check_Test) {
+    ASSERT_TRUE(CV_MAJOR_VERSION > 3);
+}
 
 TEST(complete_module_test, test_case_with_no_humans) {
     // setting up network
